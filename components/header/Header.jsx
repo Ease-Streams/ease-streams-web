@@ -1,15 +1,13 @@
 "use client";
-import Image from "next/image";
 import SearchBar from "./SearchBar";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { BiHeart } from "react-icons/bi";
+import Logo from "./Logo";
 
 const Header = () => {
   return (
     <div className="w-full flex justify-around items-center bg-[#eee] p-2 gap-2">
-      <div>
-        <Image src="/images/ease-logo.svg" height={200} width={200}></Image>
-      </div>
+      <Logo />
       <SearchBar />
       <div className="flex">
         <button className="border-[2px] lg:p-2 lg:px-3 items-center gap-3 border-none flex">

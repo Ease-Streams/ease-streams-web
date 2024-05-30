@@ -1,17 +1,17 @@
-export const Banner = () => {
+export const SmallBanner = () => {
   return (
     <>
       <div
         id="default-carousel"
         className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
         data-carousel="slide">
-        <div className="relative h-[200px] lg:h-[300px] overflow-hidden rounded-lg ">
+        <div className="relative h-[150px] overflow-hidden rounded-lg ">
           <div className="hidden duration-1000 ease-in-out" data-carousel-item>
             <img
-              height={300}
+              height={200}
               width={1400}
               loading="eager"
-              src="https://c8n.tradeling.com/img/plain/cms/rs:auto:1600::0/f:webp/q:75/No_Min_Spend_Grocery_375x200_mobile_8d295a1061.png"
+              src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/1f25201ced5d720d.jpg?q=20"
               className="absolute block w-full h-full aspect-auto"
               alt="..."
             />
