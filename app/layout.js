@@ -24,23 +24,7 @@ export default function RootLayout({ children }) {
         </div>
         <div className="flex flex-col">
           <div className="flex-grow">
-            <div className="justify-center flex">
-              <div className=" hidden lg:flex  p-2 flex-start">
-                <div className="flex flex-col gap-2  px-2">
-                  <AdBanner />
-                  <AdBanner />
-                </div>
-              </div>
-              <menu className="w-full lg:min-w-[75%] flex flex-col gap-6 p-2">
-                {children}
-              </menu>
-              <div className=" hidden lg:flex  p-2 flex-start">
-                <div className="flex flex-col gap-2 px-2">
-                  <AdBanner />
-                  <AdBanner />
-                </div>
-              </div>
-            </div>
+            {children}
             <Footer />
           </div>
           <BottomNavigation />

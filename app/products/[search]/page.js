@@ -6,24 +6,35 @@ export const metadata = {
 import { Filter } from "@/components/Filter";
 import { ProductCard } from "@/components/ProductCard";
 import Breadcrumb from "@/components/globals/BreadCrumb";
+import { AdBanner } from "@/components/home/AdBanner";
 import "flowbite";
 
 export default function Home() {
   return (
-    <div className="p-2 pb-4 flex flex-col gap-6 w-full flex-grow bg-white">
-      <Breadcrumb />
-      <div className="flex w-full gap-4">
-        <Filter />
-        <div className="flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Speakers</h1>
-          <hr />
-          <div className="grid grid-cols-3 lg:grid-cols-4 gap-5">
-            {Array.from({ length: 12 }).map((_, index) => (
-              <ProductCard key={index} />
-            ))}
+    <menu className="justify-center flex">
+      <div className="w-full lg:min-w-[75%] flex flex-col gap-6 p-2">
+        <div className="p-2 pb-4 flex flex-col gap-6 w-full flex-grow bg-white">
+          <Breadcrumb />
+          <div className="flex w-full gap-4">
+            <Filter />
+            <div className="flex flex-col gap-4">
+              <h1 className="text-2xl font-bold">Speakers</h1>
+              <hr />
+              <div className="grid grid-cols-3 lg:grid-cols-4 gap-5">
+                {Array.from({ length: 12 }).map((_, index) => (
+                  <ProductCard key={index} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <div className=" hidden lg:flex  p-2 flex-start">
+        <div className="flex flex-col gap-2 px-2">
+          <AdBanner />
+          <AdBanner />
+        </div>
+      </div>
+    </menu>
   );
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { AiFillHome } from "react-icons/ai";
 const Breadcrumb = () => {
   return (
     <nav className="flex text-xs" aria-label="Breadcrumb">

@@ -1,10 +1,10 @@
 import { CgSearch } from "react-icons/cg";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 
 export const Filter = () => {
   return (
     <div className="flex flex-col w-full lg:max-w-[220px]">
       <h2 className="lg:hidden text-xl font-semibold">Filter</h2>
-
       <div
         id="accordion-color"
         data-accordion="collapse"
@@ -17,21 +17,10 @@ export const Filter = () => {
             aria-expanded="true"
             aria-controls="accordion-color-body-1">
             <span>What is Flowbite?</span>
-            <svg
-              data-accordion-icon
-              className="w-3 h-3 rotate-180 shrink-0"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6">
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1"
-                d="M9 5 5 1 1 5"
-              />
-            </svg>
+            <MdOutlineKeyboardArrowUp
+              size={20}
+              className="rotate-180 shrink-0"
+            />
           </button>
           <div
             id="accordion-color-body-1"
@@ -40,7 +29,7 @@ export const Filter = () => {
             <div className="p-5 pt-0">
               <div className="max-w-md mx-auto">
                 <label
-                  for="default-search"
+                  htmlFor="default-search"
                   className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
                   Search
                 </label>
@@ -67,7 +56,7 @@ export const Filter = () => {
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
-                    for="default-checkbox"
+                    htmlFor="default-checkbox"
                     className="ms-2 text-sm  text-gray-900 dark:text-gray-300">
                     Default checkbox
                   </label>
@@ -77,6 +66,7 @@ export const Filter = () => {
           </div>
         </div>
       </div>
+      <hr />
     </div>
   );
 };
