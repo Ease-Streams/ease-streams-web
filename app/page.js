@@ -11,21 +11,23 @@ import "flowbite";
 
 export default function Home() {
   return (
-    <main className="p-2">
+    <main className="p-2 pb-4">
       <div className="justify-center flex gap-2">
         <div className=" hidden lg:flex  flex-grow p-2 flex-start">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2  px-2">
             <AdBanner />
             <AdBanner />
           </div>
         </div>
-        <div className="w-full lg:max-w-[80%] flex flex-col gap-3">
+        <div className="w-full lg:max-w-[70%] flex flex-col gap-6">
           <Banner />
           <PopularCategories />
           <BestSellers />
+          <BestSellers />
+          <BestSellers />
         </div>
         <div className=" hidden lg:flex  flex-grow p-2 flex-start">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 px-2">
             <AdBanner />
             <AdBanner />
           </div>

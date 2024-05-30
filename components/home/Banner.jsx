@@ -3,9 +3,9 @@ export const Banner = () => {
     <>
       <div
         id="default-carousel"
-        class="relative w-full  max-h-[300px]"
+        class="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
         data-carousel="slide">
-        <div class="relative h-[300px] overflow-hidden rounded-lg ">
+        <div class="relative h-[200px] lg:h-[300px] overflow-hidden rounded-lg ">
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img
               height={300}

@@ -2,11 +2,9 @@
 import { VscSend } from "react-icons/vsc";
 import { RiDiscountPercentLine } from "react-icons/ri";
 import Link from "next/link";
-import { DropDownMenu } from "../globals/DropDownMenu";
-import { DropDown } from "./DropDown";
 const Menu = () => {
   return (
-    <div className="flex justify-around items-center py-3 shadow-md text-sm font-medium">
+    <div className="lg:flex justify-around items-center bg-white py-3 shadow-md text-sm font-medium hidden">
       <div>All Categories</div>
       <div className="flex gap-4 text-green-600">
         <Link href={"/"} className="flex items-center gap-1">
