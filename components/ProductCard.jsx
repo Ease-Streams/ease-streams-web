@@ -4,7 +4,7 @@ export const ProductCard = () => {
   return (
     <Link
       href={"/"}
-      className="bg-white rounded-lg shadow-md p-4 border border-gray-300 max-w-[190px] min-w-[190px]">
+      className="bg-white rounded-lg shadow-md p-4 border border-gray-300 max-w-[190px] min-w-[180px] lg:min-w-[190px]">
       <img
         src="https://c8n.tradeling.com/img/plain/pim/rs:auto:1600::0/f:webp/q:75/up/65377b6fb63df7e431a1d927/03b49acb6a828504ddf90b75133932a3.jpg"
         alt="Samsung TV"

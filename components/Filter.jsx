@@ -12,7 +12,7 @@ export const Filter = () => {
         <div id="accordion-color-heading-1">
           <button
             type="button"
-            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500  gap-3"
+            className="flex items-center justify-between w-full p-5 font-medium  text-gray-500  gap-3"
             data-accordion-target="#accordion-color-body-1"
             aria-expanded="true"
             aria-controls="accordion-color-body-1">
@@ -48,7 +48,7 @@ export const Filter = () => {
               </div>
 
               {Array.from({ length: 6 }).map((_, index) => (
-                <div className="flex items-center mb-4 mt-2" key={index}>
+                <div className="flex items-center mb-4 mt-2 w-full" key={index}>
                   <input
                     id="default-checkbox"
                     type="checkbox"
