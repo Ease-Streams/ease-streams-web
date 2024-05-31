@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
       </head>
-      <body suppressHydrationWarning={true} className="bg-[#EFEFF4]">
+      <body suppressHydrationWarning={true} className="bg-white">
         <div className="sticky top-0 z-30">
           <Header />
           <Menu />

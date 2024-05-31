@@ -7,15 +7,17 @@ import { Filter } from "@/components/Filter";
 import { ProductCard } from "@/components/ProductCard";
 import Breadcrumb from "@/components/globals/BreadCrumb";
 import { AdBanner } from "@/components/home/AdBanner";
+import { SmallBanner } from "@/components/home/SmallBanner";
 import "flowbite";
 
 export default function Home() {
   return (
     <menu className="justify-center flex">
-      <div className="w-full  flex flex-col gap-6 p-2">
-        <div className="p-2 pb-4 flex flex-col gap-6 w-full flex-grow bg-white">
-          <div className="lg:pl-5">
+      <div className="w-full  flex flex-col gap-6 p-2 xl:max-w-[90%]">
+        <div className="p-2 pb-4 flex flex-col gap-6 w-full flex-grow ">
+          <div className="lg:pl-5 flex-col flex gap-2">
             <Breadcrumb />
+            <SmallBanner />
           </div>
           <div className="flex w-full gap-4">
             <div className="lg:flex hidden w-ful min-w-[220px]">
@@ -33,12 +35,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className=" hidden lg:flex  p-2 flex-start max-w-[200px]">
+      {/* <div className=" hidden lg:flex  p-2 flex-start max-w-[200px]">
         <div className="flex flex-col gap-2 px-2">
           <AdBanner />
           <AdBanner />
         </div>
-      </div>
+      </div> */}
     </menu>
   );
 }

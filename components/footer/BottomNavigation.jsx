@@ -4,6 +4,7 @@ import { LiaHomeSolid } from "react-icons/lia";
 import { BiHeart } from "react-icons/bi";
 import { TbListSearch } from "react-icons/tb";
 import { IoIosSend } from "react-icons/io";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const BottomNavigation = () => {
   return (
@@ -24,6 +25,10 @@ const BottomNavigation = () => {
         <button className="mt-1 flex flex-col items-center">
           <BiHeart size={25} />
           <span className="text-xs">Wishlist</span>
+        </button>
+        <button className="mt-1 flex flex-col items-center">
+          <FaRegCircleUser size={25} />
+          <span className="text-xs">Login</span>
         </button>
       </div>
     </div>
