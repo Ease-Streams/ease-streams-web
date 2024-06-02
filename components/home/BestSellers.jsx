@@ -24,7 +24,7 @@ export const BestSellers = () => {
         </div>
         <div className="flex gap-4 overflow-auto scroll">
           {Array.from({ length: 12 }).map((_, index) => (
-            <ProductCard key={index} />
+            <ProductCard key={index} gridView={true} />
           ))}
         </div>
       </div>
