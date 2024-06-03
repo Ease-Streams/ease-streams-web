@@ -17,7 +17,7 @@ export default function Home() {
           <AdBanner />
         </div>
       </div>
-      <menu className="w-full lg:min-w-[75%] flex flex-col gap-6 p-2">
+      <menu className="w-full lg:min-w-[75%] lg:max-w-[75%]  min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-6 p-2">
         <Banner />
         <BestSellers />
         <BestSellers />

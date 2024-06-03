@@ -1,18 +1,13 @@
 import Breadcrumb from "@/components/globals/BreadCrumb";
-import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
-import {
-  MdOutlineStarPurple500,
-  MdVerified,
-  MdVerifiedUser,
-} from "react-icons/md";
+import { MdOutlineStarPurple500, MdVerified } from "react-icons/md";
 
 export default function ProductDetails(props) {
   return (
-    <div className="flex flex-col gap-4 w-full lg:max-w-[95%] m-auto p-5">
+    <div className="flex flex-col gap-4 w-full lg:max-w-[95%] min-[1537px]:max-w-[75%] m-auto p-5">
       <Breadcrumb />
       <div className="flex flex-col lg:flex-row items-start gap-5 w-full">
-        <div className="flex flex-col gap-2 w-full lg:max-w-[30%] border-r-[1px] border-r-gray-200 lg:sticky lg:top-[20%]">
+        <div className="flex flex-col items-center gap-2 w-full lg:max-w-[30%] border-r-[1px] border-r-gray-200 lg:sticky lg:top-[22%]">
           <img
             src="https://c8n.tradeling.com/img/plain/pim/rs:auto:1600::0/f:webp/q:75/up/65377b6fb63df7e431a1d927/03b49acb6a828504ddf90b75133932a3.jpg"
             alt="Samsung TV"
@@ -159,7 +154,7 @@ export default function ProductDetails(props) {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-2 w-full lg:max-w-[22%] sticky top-[20%]">
+        <div className="flex flex-col gap-3 w-full lg:max-w-[22%] sticky top-[22%]">
           <h2 className="text-xl font-semibold mb-2">Suppliers</h2>
           <hr />
           <div className="flex flex-col border-[1px] border-gray-200 p-2 relative rounded-lg bg-gray-50">
@@ -167,12 +162,12 @@ export default function ProductDetails(props) {
               className="absolute right-[-5px] top-[-5px] text-green-500"
               size={25}
             />
-            <div className="flex justify-between">
+            <div className="flex justify-around">
               <img
-                height={55}
-                width={55}
-                className="w-full h-auto max-w-[55px] object-contain"
-                src="https://media.yellowpages-uae.com/wfile/webplogo/323719.webp"
+                height={60}
+                width={60}
+                className="w-full h-auto max-w-[60px] object-contain"
+                src="/images/ease-logo.svg"
                 alt=""
               />
               <div className="flex flex-col">
@@ -194,12 +189,12 @@ export default function ProductDetails(props) {
             </div>
           </div>
           <div className="flex flex-col border-[1px] border-gray-200 p-2 rounded-lg bg-gray-50">
-            <div className="flex justify-between">
+            <div className="flex justify-around">
               <img
                 height={55}
                 width={55}
                 className="w-full h-auto max-w-[55px] max-h-[50px] object-contain"
-                src="https://media.yellowpages-uae.com/wfile/webplogo/121280.webp"
+                src="/images/ease-logo.svg"
                 alt=""
               />
               <div className="flex flex-col">
