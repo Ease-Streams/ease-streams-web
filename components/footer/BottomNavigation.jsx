@@ -8,7 +8,7 @@ import { FaRegCircleUser } from "react-icons/fa6";
 
 const BottomNavigation = () => {
   return (
-    <div className="sticky bottom-0 h-[60px] bg-white  lg:hidden">
+    <div className="sticky bottom-0 h-[60px] bg-white  lg:hidden border-[1px] border-t-gray-200">
       <div className="flex justify-around items-center pt-1 text-gray-600">
         <button className="mt-1 flex flex-col items-center text-[#03A7E8]">
           <LiaHomeSolid size={25} />

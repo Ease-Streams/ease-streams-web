@@ -7,7 +7,7 @@ import Logo from "./Logo";
 const Header = () => {
   return (
     <div className="w-full flex justify-around items-center bg-[#eee] px-3 p-2 lg:p-2 gap-2">
-      <div className="w-full  justify-around flex min-[1537px]:max-w-[80%]">
+      <div className="w-full  justify-around flex min-[1537px]:max-w-[80%] gap-2">
         <Logo />
         <SearchBar />
         <div className="flex">
