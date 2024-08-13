@@ -5,7 +5,7 @@ import "./globals.css";
 import BottomNavigation from "../components/footer/BottomNavigation";
 import { Footer } from "../components/footer/Footer";
 import Menu from "../components/header/Menu";
-import Header from "../components/header/header";
+import Header from "../components/header/Header";
 // import Header from "@/components/header/Header";
 
 export default function RootLayout({ children }) {

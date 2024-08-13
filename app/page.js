@@ -11,5 +11,5 @@ import HomePage from "./Home";
 export default async function Home() {
   const data = await portalApi.getHomePageData();
   const homeBanner = await portalApi.getHomeBanners();
-  return <HomePage data={data.docs} homeBanner={homeBanner} />;
+  return <HomePage data={data?.docs} homeBanner={homeBanner} />;
 }
