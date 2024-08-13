@@ -1,3 +1,5 @@
+export const payloadServer = "https://cpanel.restaurants-uae.com";
+
 export const convertToSlug = (inputString) => {
   return inputString?.replaceAll("%26", "&").replace(/\s+/g, "-").toLowerCase();
 };
@@ -22,4 +24,22 @@ export const extractItemCode = (str) => {
   return null; // Return null if no match is found
 };
 
-export const payloadServer = "https://cpanel.restaurants-uae.com";
+export const normalizeSearchTerm = (searchTerm) => {
+  return searchTerm
+    .toLowerCase()
+    .replace(/[^\w\s&]/g, " ") // Replace non-word, non-space, and non-ampersand characters
+    .replace(/\s+/g, " ") // Replace multiple spaces with a single hyphen
+    .replace(/&/g, " ") // Replace ampersands with hyphens
+    .replace(/-{2,}/g, " ")
+    .trim(); // Replace two or more consecutive hyphens with a single hyphen
+};
+
+export const normalizeSearchTermwithHyphen = (searchTerm) => {
+  return searchTerm
+    .toLowerCase()
+    .replace(/[^\w\s&]/g, "-") // Replace non-word, non-space, and non-ampersand characters
+    .replace(/\s+/g, "-") // Replace multiple spaces with a single hyphen
+    .replace(/&/g, "-") // Replace ampersands with hyphens
+    .replace(/-{2,}/g, "-")
+    .trim(); // Replace two or more consecutive hyphens with a single hyphen
+};

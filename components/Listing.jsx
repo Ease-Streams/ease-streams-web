@@ -6,6 +6,7 @@ import { ProductCard } from "./ProductCard";
 import { IoGridOutline } from "react-icons/io5";
 import { CiBoxList, CiFilter } from "react-icons/ci";
 import { normaizeString } from "../app/utils/helper";
+import Pagination from "../components/Pagination";
 
 export const Listing = (props) => {
   const { title, data, page, totalPages, nextPage, prevPage } = props;
@@ -51,45 +52,12 @@ export const Listing = (props) => {
           ))}
         </div>
         <hr />
-        <form
-          aria-label="Page navigation example"
-          className="flex justify-center">
-          <ul class="inline-flex -space-x-px text-sm">
-            <li>
-              <button
-                name="page"
-                value={prevPage ? prevPage : 1}
-                class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                Previous
-              </button>
-            </li>
-            {Array.from({ length: totalPages }, (_, index) => {
-              return (
-                <li key={index}>
-                  <button
-                    name="page"
-                    value={index + 1}
-                    class={`${
-                      index + 1 == page
-                        ? "bg-[#03A7E8] text-white cursor-none"
-                        : "bg-white text-gray-500 hover:bg-gray-100"
-                    } flex items-center justify-center px-3 h-8 leading-tight    border 
-                    border-gray-300 `}>
-                    {index + 1}
-                  </button>
-                </li>
-              );
-            })}
-            <li>
-              <button
-                name="page"
-                value={nextPage ? nextPage : 1}
-                class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                Next
-              </button>
-            </li>
-          </ul>
-        </form>
+        <Pagination
+          page={page}
+          totalPages={totalPages}
+          prevPage={page > 1 ? page - 1 : null}
+          nextPage={page < totalPages ? page + 1 : null}
+        />
       </div>
     </div>
   );

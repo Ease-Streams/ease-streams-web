@@ -1,3 +1,5 @@
+import { normalizeSearchTerm } from "../utils/helper";
+
 const API_KEY = process.env.PAYLOAD_CMS_API;
 const PAYLOAD_CMS_SERVER = process.env.PAYLOAD_CMS_SERVER;
 const headers = {
@@ -63,6 +65,21 @@ const portalApi = {
   getProductDetailsWithItemCode: async (itemCode) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}api/products?where[itemCode][equals]=${itemCode}&depth=3`,
+      {
+        method: "GET",
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+  getProductSearchList: async (searchTerm, page = 1) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}api/products?where[searchtagsRef.title]][like]=${normalizeSearchTerm(
+        searchTerm
+      )}&depth=3&page=${page}`,
       {
         method: "GET",
       }

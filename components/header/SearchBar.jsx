@@ -1,7 +1,11 @@
 "use client";
-import { payloadServer } from "@/app/utils/helper";
+import {
+  normalizeSearchTermwithHyphen,
+  payloadServer,
+} from "@/app/utils/helper";
 import { useState, useEffect, useRef } from "react";
 import { CgSearch } from "react-icons/cg";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -12,6 +16,16 @@ const SearchBar = () => {
   });
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
+  const router = useRouter(); // Initialize useRouter
+
+  // Retrieve query from local storage on mount
+  useEffect(() => {
+    const storedQuery = localStorage.getItem("searchQuery");
+    if (storedQuery) {
+      setQuery(storedQuery);
+      setDropdownVisible(false);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,8 +71,31 @@ const SearchBar = () => {
   };
 
   const handleResultClick = (result) => {
-    setQuery(result.title);
+    const selectedQuery = result.title;
+    setQuery(selectedQuery);
+    localStorage.setItem("searchQuery", selectedQuery); // Store query in local storage
     setDropdownVisible(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (query.trim()) {
+        localStorage.setItem("searchQuery", query.trim()); // Store query in local storage
+        location.href = `/products/${normalizeSearchTermwithHyphen(
+          query.trim()
+        )}`; // Redirect to products page
+      }
+    }
+  };
+
+  const handleSuggestionClick = (query) => {
+    if (query.trim()) {
+      localStorage.setItem("searchQuery", query.trim()); // Store query in local storage
+      location.href = `/products/${normalizeSearchTermwithHyphen(
+        query.trim()
+      )}`; // Redirect to products page
+    }
   };
 
   // Close dropdown on clicking outside
@@ -87,6 +124,7 @@ const SearchBar = () => {
             value={query}
             onChange={handleInputChange}
             onFocus={() => setDropdownVisible(true)}
+            onKeyDown={handleKeyDown} // Add onKeyDown event
           />
           <button className="bg-[#03A7E8] h-[40px] p-2 rounded-r-md">
             <CgSearch size={25} color="white" />
@@ -110,7 +148,7 @@ const SearchBar = () => {
                         <li
                           key={result.id}
                           className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
-                          onClick={() => handleResultClick(result)}>
+                          onClick={() => handleSuggestionClick(result.title)}>
                           {result.title}
                         </li>
                         <hr className="mx-3" />

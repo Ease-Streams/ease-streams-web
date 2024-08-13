@@ -4,8 +4,27 @@ export const metadata = {
   keywords: "create next app",
 };
 
+import portalApi from "@/app/PortalApi/portalApi";
 import { SearchList } from "./SearchList";
 
-export default function Home(props) {
-  return <SearchList props={props} />;
+export default async function Home(props) {
+  const { search } = props.params;
+  const { page } = props.searchParams;
+  const breadcrumb = {
+    category: "",
+    "sub-category": "",
+    product: search,
+  };
+  const data = await portalApi.getProductSearchList(search, page);
+  return (
+    <SearchList
+      data={data?.docs}
+      page={data?.page}
+      totalPages={data?.totalPages}
+      nextPage={data?.nextPage}
+      prevPage={data?.prevPage}
+      breadcrumb={breadcrumb}
+      title={breadcrumb["sub-category"]}
+    />
+  );
 }
