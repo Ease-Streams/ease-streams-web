@@ -22,4 +22,4 @@ export const extractItemCode = (str) => {
   return null; // Return null if no match is found
 };
 
-export const payloadServer = "http://cpanel.restaurants-uae.com";
+export const payloadServer = "https://cpanel.restaurants-uae.com";
