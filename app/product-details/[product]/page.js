@@ -4,8 +4,12 @@ export const metadata = {
   keywords: "create next app",
 };
 
-import ProductDetails from "./ProductDetails";
+import ProductDetails from "../ProductDetails";
 
 export default function Page(props) {
-  return <ProductDetails props={props} />;
+  return (
+    <menu>
+      <ProductDetails props={props} />
+    </menu>
+  );
 }

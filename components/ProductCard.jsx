@@ -1,31 +1,44 @@
+"use client";
+// import { convertToSlug } from "@/app/utils/helper";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
+import { convertToSlug } from "../app/utils/helper";
 
 export const ProductCard = (props) => {
-  const { gridView } = props;
+  const { gridView, data } = props;
+  // console.log(data, "data");
   return (
-    <Link
-      href={"/"}
-      className={`bg-white group rounded-lg shadow-sm border hover:shadow-xl border-gray-200 flex ${
+    <a
+      title={data?.title}
+      href={`/${convertToSlug(
+        data?.parentcategoryref?.rootCategoryRef?.title
+      )}/${convertToSlug(data?.parentcategoryref?.title)}/${convertToSlug(
+        data?.title
+      )}-${data?.itemCode}`}
+      className={`bg-white group rounded-lg shadow-sm border hover:shadow-xl border-gray-200 flex min-w-[200px] max-w-[230px] ${
         gridView && "flex-col"
       }  w-full`}>
       <div className="p-4">
         <img
-          src="https://c8n.tradeling.com/img/plain/pim/rs:auto:1600::0/f:webp/q:75/up/65377b6fb63df7e431a1d927/03b49acb6a828504ddf90b75133932a3.jpg"
-          alt="Samsung TV"
+          src={
+            data?.productimages?.length > 0 &&
+            data?.productimages[0]?.image?.url
+          }
+          alt={
+            data?.productimages?.length > 0 &&
+            data?.productimages[0]?.image?.alt
+          }
           height={100}
           width={100}
           className="w-full h-auto mb-4 max-w-[140px] m-auto transition  ease-out group-hover:scale-110"
         />
       </div>
-      <div className="bg-[#f6f4f4] p-4 flex-grow">
-        <h2 className="text-sm  text-gray-800">
-          Samsung 55 Inch Class Crystal UHD 4K Smart TV
-        </h2>
-        <p className="text-gray-500 text-xs">Model XYZ123</p>
-        <div className="mt-4 text-sm">
+      <div className="bg-gray-100 p-4 flex-grow">
+        <h2 className="text-sm  text-gray-800">{data?.title}</h2>
+        <p className="text-gray-500 text-xs"> {data?.itemCode}</p>
+        {/* <div className="mt-4 text-sm">
           <p className="font-semibold text-gray-800">AED 1,375.50</p>
-        </div>
+        </div> */}
         <div className="flex justify-between gap-2 max-w-max">
           <button className="mt-4 w-full border-green-500 text-green-600 hover:text-white text-xs font-semibold max-w-[30px] flex items-center justify-center border-[2px] hover:bg-green-600  p-2 rounded-md">
             <FaWhatsapp size={15} />
@@ -38,6 +51,6 @@ export const ProductCard = (props) => {
               </button> */}
         </div>
       </div>
-    </Link>
+    </a>
   );
 };

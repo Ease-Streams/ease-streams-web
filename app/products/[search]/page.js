@@ -4,8 +4,8 @@ export const metadata = {
   keywords: "create next app",
 };
 
-import { ProductSearch } from "./ProductSearch";
+import { SearchList } from "./SearchList";
 
 export default function Home(props) {
-  return <ProductSearch props={props} />;
+  return <SearchList props={props} />;
 }

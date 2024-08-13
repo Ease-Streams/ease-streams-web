@@ -1,18 +1,167 @@
 "use client";
+import { payloadServer } from "@/app/utils/helper";
+import { useState, useEffect, useRef } from "react";
 import { CgSearch } from "react-icons/cg";
+
 const SearchBar = () => {
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState({
+    searchtags: [],
+    products: [],
+    brands: [],
+  });
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (query.length >= 2) {
+        try {
+          const [searchtagsResponse, productsResponse, brandsResponse] =
+            await Promise.all([
+              fetch(
+                `${payloadServer}/api/searchtags?where[title][like]=${query}&limit=5`
+              ),
+              fetch(
+                `${payloadServer}/api/products?where[title][like]=${query}&limit=5`
+              ),
+              fetch(
+                `${payloadServer}/api/brands?where[title][like]=${query}&limit=5`
+              ),
+            ]);
+
+          const searchtagsData = await searchtagsResponse.json();
+          const productsData = await productsResponse.json();
+          const brandsData = await brandsResponse.json();
+
+          setResults({
+            searchtags: searchtagsData.docs || [],
+            products: productsData.docs || [],
+            brands: brandsData.docs || [],
+          });
+
+          setDropdownVisible(true);
+        } catch (error) {
+          console.error("Error fetching search results:", error);
+        }
+      } else {
+        setDropdownVisible(false);
+      }
+    };
+
+    fetchData();
+  }, [query]);
+
+  const handleInputChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handleResultClick = (result) => {
+    setQuery(result.title);
+    setDropdownVisible(false);
+  };
+
+  // Close dropdown on clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
+
   return (
     <>
-      <div className="w-full lg:max-w-[60%]  flex items-center">
-        <input
-          type="search"
-          placeholder="Search category, product..."
-          minLength={3}
-          className="w-full outline-none focus:border-0  border-none py-2 h-[40px] px-5 bg-white  rounded-l-md"
-        />
-        <button className=" bg-[#03A7E8] h-[40px] p-2 rounded-r-md">
-          <CgSearch size={25} color="white" />
-        </button>
+      <div className="w-full lg:max-w-[80%] flex flex-col items-center relative">
+        <div className="flex w-full">
+          <input
+            type="search"
+            placeholder="Search category, product..."
+            minLength={3}
+            className="w-full outline-none focus:border-0 border-none py-2 h-[40px] px-5 bg-white rounded-l-md"
+            value={query}
+            onChange={handleInputChange}
+            onFocus={() => setDropdownVisible(true)}
+          />
+          <button className="bg-[#03A7E8] h-[40px] p-2 rounded-r-md">
+            <CgSearch size={25} color="white" />
+          </button>
+        </div>
+        {isDropdownVisible &&
+          (results.searchtags.length > 0 ||
+            results.products.length > 0 ||
+            results.brands.length > 0) && (
+            <div
+              ref={dropdownRef}
+              className="absolute w-full text-sm bg-white border rounded-md shadow-lg p-2 mt-2 top-[34px] z-10 max-h-[400px] overflow-y-auto">
+              <ul>
+                {results.searchtags.length > 0 && (
+                  <>
+                    <li className="bg-gray-100 p-2 font-semibold text-gray-500">
+                      Suggestions
+                    </li>
+                    {results.searchtags.map((result) => (
+                      <>
+                        <li
+                          key={result.id}
+                          className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleResultClick(result)}>
+                          {result.title}
+                        </li>
+                        <hr className="mx-3" />
+                      </>
+                    ))}
+                  </>
+                )}
+                {results.products.length > 0 && (
+                  <>
+                    <li className="bg-gray-100 p-2 font-semibold text-gray-500">
+                      Products
+                    </li>
+                    {results.products.map((result) => (
+                      <>
+                        <li
+                          key={result.id}
+                          className="py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleResultClick(result)}>
+                          <a href={result.slug}>{result.title}</a>
+                        </li>
+                        <hr className="mx-3" />
+                      </>
+                    ))}
+                  </>
+                )}
+                {results.brands.length > 0 && (
+                  <>
+                    <li className="bg-gray-100 p-2 font-semibold text-gray-500">
+                      Brands
+                    </li>
+                    {results.brands.map((result) => (
+                      <>
+                        <li
+                          key={result.id}
+                          className="flex flex-wrap items-center py-2 px-4 hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleResultClick(result)}>
+                          <img
+                            src={result.image.url}
+                            alt={result.image.alt}
+                            className="w-8 h-8 mr-2 rounded-full"
+                          />
+                          {result.title}
+                        </li>
+                        <hr className="mx-3" />
+                      </>
+                    ))}
+                  </>
+                )}
+              </ul>
+            </div>
+          )}
       </div>
     </>
   );

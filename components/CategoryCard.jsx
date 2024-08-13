@@ -1,24 +1,47 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-export const CategoryCard = () => {
+import { convertToSlug } from "../app/utils/helper";
+
+export const CategoryCard = (props) => {
+  const { data, frompage } = props;
+  const title = data?.parentcategoryref?.title
+    ? data?.parentcategoryref?.title
+    : data?.title;
+  const categoryImage = data?.parentcategoryref?.categoryImage
+    ? data?.parentcategoryref?.categoryImage
+    : data?.categoryImage;
+  let href = "";
+  if (frompage == "Category") {
+    href = `${convertToSlug(
+      data?.parentcategoryref
+        ? data?.parentcategoryref.title
+        : data?.rootCategoryRef.title
+    )}/${convertToSlug(data?.title)}`;
+  } else {
+    href = `${convertToSlug(
+      data?.parentcategoryref?.rootCategoryRef?.title
+    )}/${convertToSlug(data?.parentcategoryref?.title)}`;
+  }
+
   return (
-    <Link
-      href={"/"}
+    <a
+      title={data?.parentcategoryref?.categoryImage?.alt}
+      href={`${href}`}
       className="rounded-full h-[120px] min-w-[120px] lg:h-[150px] lg:min-w-[150px] justify-center items-center border-[2px] shadow-sm bg-white border-green-300 flex flex-col p-2">
       <div className="w-[70px] lg:w-[80px]">
-        <Image
+        <img
           width={100}
           height={100}
-          alt="Picture of the author"
+          alt={categoryImage?.alt}
           className="mx-auto object-contain"
-          src={
-            "https://yellow-pages-bahrain-stage.s3.me-south-1.amazonaws.com/resizedimage/300/uae/images/productimages/defaultimages/noimageproducts/metal-seated-ball-valve-en-din-3516-3540.webp"
-          }></Image>
+          src={categoryImage.url}
+        />
       </div>
-      <div className="flex flex-col">
-        <p className="text-gray-700 font-semibold">Plumbing</p>
+      <div className="flex items-end">
+        <small className="text-gray-700 font-semibold whitespace-pre">
+          {title}
+        </small>
       </div>
-    </Link>
+    </a>
   );
 };

@@ -1,4 +1,10 @@
-export const Banner = () => {
+"use client";
+
+import Link from "next/link";
+
+export const Banner = (props) => {
+  const { data } = props;
+  const banners = data?.homeBanner[0]?.banners;
   return (
     <>
       <div
@@ -6,24 +12,34 @@ export const Banner = () => {
         className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
         data-carousel="slide">
         <div className="relative h-[200px] lg:h-[300px] overflow-hidden rounded-lg ">
-          <div className="hidden duration-1000 ease-in-out" data-carousel-item>
-            <img
-              height={300}
-              width={1400}
-              loading="eager"
-              src="https://c8n.tradeling.com/img/plain/cms/rs:auto:1600::0/f:webp/q:75/No_Min_Spend_Grocery_375x200_mobile_8d295a1061.png"
-              className="absolute block w-full h-full aspect-auto"
-              alt="..."
-            />
-          </div>
+          {banners?.map((item, index) => (
+            <div
+              key={index}
+              className="hidden duration-1000 ease-in-out"
+              data-carousel-item>
+              <Link href={item.urlLink ? item.urlLink : "#"}>
+                <img
+                  height={300}
+                  width={1400}
+                  loading="eager"
+                  src={item.image.url}
+                  className="absolute block w-full h-full aspect-auto"
+                  alt={item.image.alt}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
         <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-          <button
-            type="button"
-            className="w-3 h-3 rounded-full"
-            aria-current="true"
-            aria-label="Slide 1"
-            data-carousel-slide-to="0"></button>
+          {banners?.map((item, index) => (
+            <button
+              key={index}
+              type="button"
+              className="w-3 h-3 rounded-full"
+              aria-current="true"
+              aria-label="Slide 1"
+              data-carousel-slide-to="0"></button>
+          ))}
         </div>
         <button
           type="button"
