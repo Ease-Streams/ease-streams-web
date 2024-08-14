@@ -30,6 +30,7 @@ const page = async (props) => {
             height={100}
             className="mx-auto"
           />
+
           <h1 className="text-3xl font-bold mt-4">{brandData.title}</h1>
           <p className="text-gray-600 mt-2">{brandData.description}</p>
         </div>
