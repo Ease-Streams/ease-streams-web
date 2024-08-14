@@ -23,6 +23,7 @@ const page = async (props) => {
         {/* Brand Section */}
         <div className="text-center ">
           <Image
+            unoptimized={true}
             src={brandData?.image?.url}
             alt={brandData?.image?.alt}
             width={100}
