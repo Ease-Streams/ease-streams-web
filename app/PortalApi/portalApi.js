@@ -109,10 +109,10 @@ const portalApi = {
       .catch((err) => console.error(err));
   },
   getProductSearchList: async (searchTerm, page = 1) => {
+    searchTerm = normalizeSearchTerm(searchTerm);
+
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/products?where[searchtagsRef.title]][like]=${normalizeSearchTerm(
-        searchTerm
-      )}&depth=3&page=${page}`,
+      `${PAYLOAD_CMS_SERVER}api/products?where[or][0][searchtagsRef.title][like]=${searchTerm}&where[or][1][title][like]=${searchTerm}&depth=3&page=${page}`,
       {
         method: "GET",
       }
