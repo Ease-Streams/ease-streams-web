@@ -19,5 +19,5 @@ export default async function page(props) {
       breadcrumb={breadcrumb}
       title={breadcrumb["sub-category"]}
     />
-  ); //>;
+  );
 }

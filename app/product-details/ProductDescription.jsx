@@ -52,9 +52,7 @@ export const ProductDescription = ({ data }) => {
             <h2 className="text-xl font-semibold ">Brands</h2>
             <div className="flex flex-wrap gap-2 text-center">
               {data?.brandsRef?.map((element, index) => (
-                <Link
-                  href={`/brands/${element?.title.toLowerCase()}`}
-                  key={index}>
+                <a href={`/brand/${element?.title.toLowerCase()}`} key={index}>
                   <div className="bg-gray-100 p-2 flex flex-col rounded-md gap-1">
                     <Image
                       src={element.image.url}
@@ -64,7 +62,7 @@ export const ProductDescription = ({ data }) => {
                     />
                   </div>
                   <span className="font-semibold">{element?.title}</span>
-                </Link>
+                </a>
               ))}
             </div>
           </>

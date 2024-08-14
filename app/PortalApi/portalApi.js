@@ -62,6 +62,39 @@ const portalApi = {
       .catch((err) => console.error(err));
   },
 
+  getBrandData: async (brand, page = 1) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}api/brands?where[title][like]=${brand.replaceAll(
+        "-",
+        " "
+      )}`,
+      {
+        method: "GET",
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+  getProductsByBrand: async (brand, page = 1) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}api/products?where[brandsRef.title][contains]=${brand.replaceAll(
+        "-",
+        " "
+      )}&depth=4&page=${page}`,
+      {
+        method: "GET",
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+
   getProductDetailsWithItemCode: async (itemCode) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}api/products?where[itemCode][equals]=${itemCode}&depth=3`,

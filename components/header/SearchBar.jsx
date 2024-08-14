@@ -16,14 +16,14 @@ const SearchBar = () => {
   });
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
-  const router = useRouter(); // Initialize useRouter
 
   // Retrieve query from local storage on mount
   useEffect(() => {
     const storedQuery = localStorage.getItem("searchQuery");
     if (storedQuery) {
-      setQuery(storedQuery);
       setDropdownVisible(false);
+      setQuery(storedQuery);
+      localStorage.removeItem("searchQuery");
     }
   }, []);
 
@@ -53,8 +53,6 @@ const SearchBar = () => {
             products: productsData.docs || [],
             brands: brandsData.docs || [],
           });
-
-          setDropdownVisible(true);
         } catch (error) {
           console.error("Error fetching search results:", error);
         }
@@ -67,6 +65,7 @@ const SearchBar = () => {
   }, [query]);
 
   const handleInputChange = (e) => {
+    setDropdownVisible(true);
     setQuery(e.target.value);
   };
 
@@ -95,6 +94,12 @@ const SearchBar = () => {
       location.href = `/products/${normalizeSearchTermwithHyphen(
         query.trim()
       )}`; // Redirect to products page
+    }
+  };
+  const handleBrandClick = (query) => {
+    if (query.trim()) {
+      localStorage.setItem("searchQuery", query.trim()); // Store query in local storage
+      location.href = `/brand/${normalizeSearchTermwithHyphen(query.trim())}`; // Redirect to products page
     }
   };
 
@@ -184,7 +189,7 @@ const SearchBar = () => {
                         <li
                           key={result.id}
                           className="flex flex-wrap items-center py-2 px-4 hover:bg-gray-100 cursor-pointer"
-                          onClick={() => handleResultClick(result)}>
+                          onClick={() => handleBrandClick(result.title)}>
                           <img
                             src={result.image.url}
                             alt={result.image.alt}
