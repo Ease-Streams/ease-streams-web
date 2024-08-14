@@ -6,6 +6,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import { CgSearch } from "react-icons/cg";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
+import Image from "next/image";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -190,7 +191,10 @@ const SearchBar = () => {
                           key={result.id}
                           className="flex flex-wrap items-center py-2 px-4 hover:bg-gray-100 cursor-pointer"
                           onClick={() => handleBrandClick(result.title)}>
-                          <img
+                          <Image
+                            unoptimized={true}
+                            height={32}
+                            width={32}
                             src={result.image.url}
                             alt={result.image.alt}
                             className="w-8 h-8 mr-2 rounded-full"

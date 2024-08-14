@@ -55,6 +55,7 @@ export const ProductDescription = ({ data }) => {
                 <a href={`/brand/${element?.title.toLowerCase()}`} key={index}>
                   <div className="bg-gray-100 p-2 flex flex-col rounded-md gap-1">
                     <Image
+                      unoptimized={true}
                       src={element.image.url}
                       alt={element.image.alt}
                       height={50}
