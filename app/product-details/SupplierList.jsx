@@ -4,6 +4,12 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
 
 const SupplierList = ({ data }) => {
+  const handleClick = (e) => {
+    const selectedSupplier = new CustomEvent("selectedSupplier", {
+      detail: data,
+    });
+    window.dispatchEvent(selectedSupplier);
+  };
   return (
     <>
       <div className="flex flex-col border-[1px] border-gray-200 p-2 relative rounded-lg bg-gray-50">
@@ -33,7 +39,15 @@ const SupplierList = ({ data }) => {
               <button className="mt-4 w-full border-green-500 max-w-[100px]  gap-1 text-green-600 hover:text-white text-xs font-semibold  flex items-center justify-center border-[2px] hover:bg-green-600  p-[.4rem] rounded-md">
                 <FaWhatsapp size={15} /> Whatsapp
               </button>
-              <button className="mt-4 w-full whitespace-nowrap max-w-[100px] bg-blue-500 text-xs font-semibold hover:bg-blue-600 text-white  rounded-md">
+              <button
+                className="mt-4 w-full whitespace-nowrap max-w-[100px] bg-blue-500 text-xs font-semibold
+               hover:bg-blue-600 text-white  rounded-md"
+                type="button"
+                data-drawer-target="drawer-send-enquiry"
+                data-drawer-show="drawer-send-enquiry"
+                data-drawer-placement="right"
+                aria-controls="drawer-send-enquiry"
+                onClick={handleClick}>
                 Send Enquiry
               </button>
             </div>

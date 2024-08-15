@@ -18,7 +18,11 @@ const ProductDetails = (props) => {
         <div className="flex-grow flex flex-col gap-3 w-full lg:max-w-[65%] xl:max-w-[50%]">
           <ProductDescription data={data} />
         </div>
-        <Suppliers brandsData={brands} supplierData={supplierData} />
+        <Suppliers
+          brandsData={brands}
+          supplierData={supplierData}
+          productData={data}
+        />
       </div>
     </div>
   );

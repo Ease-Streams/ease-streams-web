@@ -19,7 +19,7 @@ export const Listing = (props) => {
       <div className="flex flex-col relative w-full gap-4">
         <div className="gap-2 flex flex-col">
           <div className="flex  gap-2">
-            <div className="relative top-[2px] gap-1 flex items-center lg:hidden">
+            <div className="relative top-[2px] gap-1  items-center hidden">
               <button
                 className={` p-1 ${gridView && "bg-gray-200"}`}
                 onClick={() => setGridView(true)}>
@@ -45,7 +45,7 @@ export const Listing = (props) => {
         </div>
         <div
           className={`grid ${
-            gridView ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-5" : ""
+            gridView ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : ""
           }  gap-4 items-center`}>
           {data?.map((product, index) => (
             <ProductCard data={product} key={index} gridView={gridView} />

@@ -12,10 +12,10 @@ const Logo = () => {
         ckas></Image>
       <Image
         alt="Easetreams logo"
-        src="/images/ease-logo-short.svg"
-        className="lg:hidden max-w-[40px]"
-        height={70}
-        width={70}></Image>
+        src="/images/ease-logo-short.webp"
+        className="lg:hidden max-w-[30px] relative top-[3px]"
+        height={30}
+        width={30}></Image>
     </a>
   );
 };

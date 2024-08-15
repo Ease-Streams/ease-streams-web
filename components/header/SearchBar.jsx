@@ -7,6 +7,8 @@ import { useState, useEffect, useRef } from "react";
 import { CgSearch } from "react-icons/cg";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import Image from "next/image";
+import { FaAngleDown } from "react-icons/fa6";
+import { BiCategory } from "react-icons/bi";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -120,13 +122,22 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="w-full lg:max-w-[80%] flex flex-col items-center relative">
+      <div className="w-full  flex flex-col items-center relative">
         <div className="flex w-full">
+          <button className="bg-[#ddd] px-2 rounded-l-md font-semibold text-gray-500 text-sm">
+            <span className="flex whitespace-nowrap justify-center items-center gap-1">
+              <span className="hidden md:block">All Categories</span>{" "}
+              <span className="block md:hidden">
+                <BiCategory />
+              </span>{" "}
+              <FaAngleDown className="relative top-[2px]" />
+            </span>
+          </button>
           <input
             type="search"
-            placeholder="Search category, product..."
+            placeholder="Search category, product, brand..."
             minLength={3}
-            className="w-full outline-none focus:border-0 border-none py-2 h-[40px] px-5 bg-white rounded-l-md"
+            className="w-full outline-none focus:border-0 border-none py-2 h-[40px] px-5 bg-white "
             value={query}
             onChange={handleInputChange}
             onFocus={() => setDropdownVisible(true)}

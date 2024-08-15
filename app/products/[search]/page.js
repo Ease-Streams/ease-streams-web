@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 import portalApi from "@/app/PortalApi/portalApi";
-import { SearchList } from "./SearchList";
+import ProductList from "@/components/ProductList";
 
 export default async function Home(props) {
   const { search } = props.params;
@@ -17,7 +17,7 @@ export default async function Home(props) {
   };
   const data = await portalApi.getProductSearchList(search, page);
   return (
-    <SearchList
+    <ProductList
       data={data?.docs}
       page={data?.page}
       totalPages={data?.totalPages}

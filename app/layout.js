@@ -6,7 +6,6 @@ import BottomNavigation from "../components/footer/BottomNavigation";
 import { Footer } from "../components/footer/Footer";
 import Menu from "../components/header/Menu";
 import Header from "../components/header/Header";
-// import Header from "@/components/header/Header";
 
 export default function RootLayout({ children }) {
   return (
@@ -25,7 +24,7 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning={true} className="bg-white">
         <div className="sticky top-0 z-30">
           <Header />
-          <Menu />
+          {/* <Menu /> */}
         </div>
         <div className="flex flex-col">
           <div className="flex-grow">
