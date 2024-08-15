@@ -24,7 +24,7 @@ export default async function Home(props) {
       nextPage={data?.nextPage}
       prevPage={data?.prevPage}
       breadcrumb={breadcrumb}
-      title={breadcrumb["sub-category"]}
+      title={search}
     />
   );
 }
