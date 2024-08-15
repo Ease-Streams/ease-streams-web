@@ -44,7 +44,7 @@ const page = async (props) => {
         nextPage={brandProducts?.nextPage}
         prevPage={brandProducts?.prevPage}
         breadcrumb={{ category: brandData.title }}
-        title={brandData.title}
+        title={""}
       />
     </>
   );
