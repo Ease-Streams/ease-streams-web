@@ -4,7 +4,7 @@ export const metadata = {
   keywords: "create next app",
 };
 
-import "flowbite";
+// import "flowbite";
 import portalApi from "./PortalApi/portalApi";
 import HomePage from "./Home";
 

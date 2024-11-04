@@ -1,6 +1,6 @@
 "use client";
 
-import { convertToSlug } from "../app/utils/helper";
+import { convertToSlug } from "../utils/helper";
 
 export const CategoryCard = (props) => {
   const { data, frompage } = props;

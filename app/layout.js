@@ -1,11 +1,10 @@
+import BottomNavigation from "./components/footer/BottomNavigation";
+import { Footer } from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import "./globals.css";
 // import Menu from "@/components/header/Menu";
 // import { Footer } from "@/components/footer/Footer";
 // import BottomNavigation from "@/components/footer/BottomNavigation";
-import BottomNavigation from "../components/footer/BottomNavigation";
-import { Footer } from "../components/footer/Footer";
-import Menu from "../components/header/Menu";
-import Header from "../components/header/Header";
 
 export default function RootLayout({ children }) {
   return (

@@ -1,4 +1,4 @@
-export const payloadServer = "https://cpanel.restaurants-uae.com";
+export const payloadServer = "https://cms.easestreams.com";
 
 export const convertToSlug = (inputString) => {
   return inputString?.replaceAll("%26", "&").replace(/\s+/g, "-").toLowerCase();

@@ -1,6 +1,6 @@
 "use client";
 
-import { normaizeString } from "../../app/utils/helper";
+import { normaizeString } from "@/app/utils/helper";
 import { CategoryCard } from "../CategoryCard";
 
 export const PopularCategories = (props) => {

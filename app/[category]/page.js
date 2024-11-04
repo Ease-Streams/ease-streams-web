@@ -1,6 +1,5 @@
 import portalApi from "../PortalApi/portalApi";
 import SubCategories from "./SubCategories";
-import ProductList from "../../components/ProductList";
 
 const page = async (props) => {
   const { params, searchParams } = props;

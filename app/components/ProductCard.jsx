@@ -1,8 +1,7 @@
 "use client";
 // import { convertToSlug } from "@/app/utils/helper";
-import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
-import { convertToSlug } from "../app/utils/helper";
+import { convertToSlug } from "../utils/helper";
 
 export const ProductCard = (props) => {
   const { gridView, data } = props;

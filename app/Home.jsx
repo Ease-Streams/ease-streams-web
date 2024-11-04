@@ -3,9 +3,9 @@
 import React from "react";
 // import { Banner } from "@/components/home/Banner";
 // import { ProductShowcase } from "@/components/home/ProductShowcase";
-import { AdBanner } from "../components/home/AdBanner";
-import { ProductShowcase } from "../components/home/ProductShowcase";
-import { Banner } from "../components/home/Banner";
+import { ProductShowcase } from "./components/home/ProductShowcase";
+import { Banner } from "./components/home/Banner";
+import { AdBanner } from "./components/home/AdBanner";
 // import { AdBanner } from "@/components/home/AdBanner";
 
 const HomePage = (props) => {
@@ -21,7 +21,7 @@ const HomePage = (props) => {
       </div>
       <div className="w-full lg:min-w-[75%] lg:max-w-[75%]  min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-6 p-2">
         {homeBanner && <Banner data={homeBanner} />}
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <ProductShowcase data={item} key={index} />
         ))}
       </div>
