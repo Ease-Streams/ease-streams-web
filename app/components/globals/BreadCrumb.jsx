@@ -1,6 +1,5 @@
-import Link from "next/link";
+import { convertToSlug } from "@/app/utils/helper";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { convertToSlug } from "../../app/utils/helper";
 const Breadcrumb = (props) => {
   const { data } = props;
   return (

@@ -6,7 +6,7 @@ import { CgWebsite } from "react-icons/cg";
 import { BiMap } from "react-icons/bi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { FaWhatsapp } from "react-icons/fa6";
-import SmallBanner from "@/components/home/SmallBanner";
+import SmallBanner from "../../components/home/SmallBanner";
 
 export const Supplier = () => {
   return (

@@ -3,7 +3,7 @@
 import ProductImageList from "./ProductImageList";
 import { ProductDescription } from "./ProductDescription";
 import Suppliers from "./Suppliers";
-import Breadcrumb from "../../components/globals/BreadCrumb";
+import Breadcrumb from "../components/globals/BreadCrumb";
 
 const ProductDetails = (props) => {
   const { data, breadcrumb } = props;

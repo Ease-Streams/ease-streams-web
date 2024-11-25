@@ -1,6 +1,6 @@
 // components/BrandShowcase.jsx
 import portalApi from "@/app/PortalApi/portalApi";
-import ProductList from "@/components/ProductList";
+import ProductList from "../../components/ProductList";
 import Image from "next/image";
 import React from "react";
 

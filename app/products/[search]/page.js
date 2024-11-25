@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 import portalApi from "@/app/PortalApi/portalApi";
-import ProductList from "@/components/ProductList";
+import ProductList from "@/app/components/ProductList";
 
 export default async function Home(props) {
   const { search } = props.params;

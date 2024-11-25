@@ -5,8 +5,8 @@ import { Filter } from "./Filter";
 import { ProductCard } from "./ProductCard";
 import { IoGridOutline } from "react-icons/io5";
 import { CiBoxList, CiFilter } from "react-icons/ci";
-import { normaizeString } from "../app/utils/helper";
 import Pagination from "../components/Pagination";
+import { normaizeString } from "../utils/helper";
 
 export const Listing = (props) => {
   const { title, data, page, totalPages, nextPage, prevPage } = props;
