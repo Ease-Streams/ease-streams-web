@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-import portalApi from "../../PortalApi/portalApi";
-import ProductList from "../../components/ProductList";
-=======
 import Breadcrumb from "@/app/components/globals/BreadCrumb";
 import { AdBanner } from "@/app/components/home/AdBanner";
 import { Banner } from "@/app/components/home/Banner";
 import { ProductCard } from "@/app/components/ProductCard";
 import SubCategoryItemList from "@/app/components/SubCategory/SubCategoryItemList";
 import portalapi from "@/app/PortalApi/portalApi";
->>>>>>> 19c6c7b50706a3f6ef8f8b4449cb6d1c231ae76d
 
 const page = async (props) => {
   const { params, searchParams } = props;
@@ -17,7 +12,6 @@ const page = async (props) => {
   const categorySlug = breadcrumb["sub-category"];
   let subCategory = await portalapi.getSubCategoryData(categorySlug);
   subCategory = subCategory.docs[0];
-  console.log(subCategory, "subCategory");
 
   return (
     <menu className="justify-center flex bg-gray-100">
