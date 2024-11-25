@@ -69,11 +69,6 @@ export const ProductDescription = ({ data }) => {
           </>
         )}
       </div>
-      <div className="flex justify-end gap-2 ">
-        <button className="mt-4 w-full whitespace-nowrap max-w-[110px] bg-yellow-500 text-xs font-semibold hover:bg-yellow-600 text-white p-3  rounded-md">
-          Add to Wishlist
-        </button>
-      </div>
     </div>
   );
 };

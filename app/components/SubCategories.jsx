@@ -1,9 +1,16 @@
 "use client";
 
+<<<<<<< HEAD:app/[category]/SubCategories.jsx
 import Breadcrumb from "../components/globals/BreadCrumb";
 import { PopularCategories } from "../components/home/PopularCategories";
 import SmallBanner from "../components/home/SmallBanner";
 import { Listing } from "../components/Listing";
+=======
+import { PopularCategories } from "./home/PopularCategories";
+import SmallBanner from "./home/SmallBanner";
+import { Listing } from "./Listing";
+import Breadcrumb from "./globals/BreadCrumb";
+>>>>>>> 19c6c7b50706a3f6ef8f8b4449cb6d1c231ae76d:app/components/SubCategories.jsx
 
 const SubCategories = (props) => {
   const {

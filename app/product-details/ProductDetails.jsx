@@ -11,7 +11,7 @@ const ProductDetails = (props) => {
   const brands = data?.brandsRef;
 
   return (
-    <div className="flex flex-col gap-4 w-full lg:max-w-[98%] xl:max-w-[95%]  m-auto p-5">
+    <div className="flex flex-col gap-4 w-full lg:max-w-[98%] xl:max-w-[95%]  m-auto p-2">
       <Breadcrumb data={breadcrumb} />
       <div className="flex flex-col lg:flex-row items-start gap-5 w-full">
         <ProductImageList productimages={data?.productimages} />

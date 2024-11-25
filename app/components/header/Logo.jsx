@@ -8,8 +8,7 @@ const Logo = () => {
         src="/images/ease-logo.svg"
         className="hidden lg:flex max-w-[200px]"
         height={45}
-        width={200}
-        ckas></Image>
+        width={200}></Image>
       <Image
         alt="Easetreams logo"
         src="/images/ease-logo-short.webp"

@@ -2,23 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-  [type='search']:focus{
-  box-shadow:none;
+[type="search"]:focus {
+  box-shadow: none;
 }
 
-  body {
-    @apply bg-background text-foreground;
-  }
+body {
+  @apply bg-background text-foreground;
+  scroll-behavior: smooth;
+}
 
-  div::-webkit-scrollbar {
-    display: none;
-  }
-  
-  div {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+div::-webkit-scrollbar {
+  display: none;
+}
 
-  .revert-tw *{
-    all: revert !important;
-  }
+div {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.reset-tw * {
+  /* font-family: Arial, Helvetica, sans-serif !important; */
+  /* Reset Tailwind-specific properties */
+  /* Add specific Tailwind properties to reset */
+  color: revert;
+  font-size: revert;
+  padding: revert;
+  margin: revert;
+  line-height: inherit;
+  /* etc. */
+}
+h1 {
+  @apply lg:text-3xl text-2xl;
+}
+h2 {
+  @apply lg:text-2xl text-xl;
+}
+h3 {
+  @apply lg:text-xl text-lg;
+}
+h4 {
+  @apply lg:text-lg text-base;
+}
+h5 {
+  @apply text-base;
+}
+h6 {
+  @apply text-sm;
+}
+a:-webkit-any-link:active {
+  color: red !important;
+}
+/* Highlight navigation link when its corresponding section is targeted */
+#section_0:target nav .nav-link[href="#section_0"],
+#section_1:target ~ nav .nav-link[href="#section_1"],
+#section_2:target ~ nav .nav-link[href="#section_2"],
+#section_3:target ~ nav .nav-link[href="#section_3"] {
+  background-color: #29698f; /* Highlight background */
+  color: white; /* Highlight text */
+  font-weight: bold; /* Optional: Make the text bold */
+}

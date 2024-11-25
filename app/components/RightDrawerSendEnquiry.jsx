@@ -66,14 +66,22 @@ function RightDrawerSendEnquiry({ productData }) {
         <div className="flex flex-col items-center">
           <Image
             unoptimized={true}
-            src={productData.productimages[0].image?.url}
-            alt={productData.productimages[0].image?.alt}
+            src={
+              productData?.productImages
+                ? `${productData.productImages[0].image?.url}`
+                : "placeholder.webp"
+            }
+            alt={
+              productData?.productImages
+                ? `${productData.productImages[0].image?.alt}`
+                : "placeholder.webp"
+            }
             height={100}
             width={100}
             className="object-contain"
           />
-          <p className="font-semibold text-gray-500">{productData.title}</p>
-          <p className="font-semibold">{supplier.title}</p>
+          <p className="font-semibold text-gray-500">{productData?.title}</p>
+          <p className="font-semibold">{supplier?.title}</p>
         </div>
         <br />
         <form className="space-y-4 p-2" onSubmit={handleSubmit}>
