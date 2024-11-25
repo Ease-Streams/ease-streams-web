@@ -25,20 +25,24 @@ const page = async (props) => {
           <Breadcrumb data={breadcrumb} />
           <div className="flex flex-col w-full">
             <div className="flex flex-col lg:flex-row items-center">
-              <div className=" order-2 lg:order-1">
-                <div
-                  className="!text-sm lg:!text-md"
-                  dangerouslySetInnerHTML={{
-                    __html: category?.headingContent,
-                  }}></div>
-              </div>
-              <Image
-                unoptimized={true}
-                height="200"
-                width="200"
-                className="max-w-[200px] mt-2 lg:mt-0 order-1 lg:order-2"
-                src={`${process.env.PAYLOAD_CMS_SERVER}${category?.headingImage?.url}`}
-              />
+              {category?.headingContent && (
+                <div className=" order-2 lg:order-1">
+                  <div
+                    className="!text-sm lg:!text-md"
+                    dangerouslySetInnerHTML={{
+                      __html: category?.headingContent,
+                    }}></div>
+                </div>
+              )}
+              {category?.headingImage && (
+                <Image
+                  unoptimized={true}
+                  height="200"
+                  width="200"
+                  className="max-w-[200px] mt-2 lg:mt-0 order-1 lg:order-2"
+                  src={`${process.env.PAYLOAD_CMS_SERVER}${category?.headingImage?.url}`}
+                />
+              )}
             </div>
             <div className="border-gray-300">
               <hr />
