@@ -1,6 +1,7 @@
 import BottomNavigation from "./components/footer/BottomNavigation";
 import { Footer } from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import Menu from "./components/header/Menu";
 import "./globals.css";
 // import Menu from "@/components/header/Menu";
 // import { Footer } from "@/components/footer/Footer";
@@ -20,14 +21,16 @@ export default function RootLayout({ children }) {
           async
           src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
       </head>
-      <body suppressHydrationWarning={true} className="bg-white">
+      <body
+        suppressHydrationWarning={true}
+        className="bg-gray-100 text-gray-800">
         <div className="sticky top-0 z-30">
           <Header />
-          {/* <Menu /> */}
+          <Menu />
         </div>
         <div className="flex flex-col">
-          <div className="flex-grow">
-            {children}
+          <div className="flex-grow ">
+            <div className="my-2">{children}</div>
             <Footer />
           </div>
           <BottomNavigation />

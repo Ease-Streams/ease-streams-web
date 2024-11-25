@@ -1,32 +1,30 @@
-"use client";
-
-import Link from "next/link";
-
 export const Banner = (props) => {
   const { data } = props;
-  const banners = data?.homeBanner[0]?.banners;
+  const banners = data?.banners || data;
   return (
     <>
       <div
         id="default-carousel"
         className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
         data-carousel="slide">
-        <div className="relative h-[200px] lg:h-[300px] overflow-hidden rounded-lg ">
+        <div className="relative h-[200px] overflow-hidden rounded-lg ">
           {banners?.map((item, index) => (
             <div
               key={index}
-              className="hidden duration-1000 ease-in-out"
+              className="hidden duration-[500] ease-in-out"
               data-carousel-item>
-              <Link href={item.urlLink ? item.urlLink : "#"}>
+              <a
+                title={item.alt || ""}
+                href={item.urlLink ? item.urlLink : "#"}>
                 <img
                   height={300}
                   width={1400}
                   loading="eager"
-                  src={item.image.url}
+                  src={`${process.env.PAYLOAD_CMS_SERVER}${item.image.url}`}
                   className="absolute block w-full h-full aspect-auto"
                   alt={item.image.alt}
                 />
-              </Link>
+              </a>
             </div>
           ))}
         </div>

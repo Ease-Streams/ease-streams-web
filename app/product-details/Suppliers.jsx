@@ -2,7 +2,7 @@
 import React from "react";
 import SupplierList from "./SupplierList";
 import { useEffect, useState } from "react";
-import RightDrawerSendEnquiry from "../../components/RightDrawerSendEnquiry";
+import RightDrawerSendEnquiry from "../components/RightDrawerSendEnquiry";
 
 const Suppliers = ({ supplierData, brandsData, productData }) => {
   const [suppliers, setSuppliers] = useState([]);

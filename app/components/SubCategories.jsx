@@ -1,9 +1,9 @@
 "use client";
 
-import Breadcrumb from "../../components/globals/BreadCrumb";
-import { PopularCategories } from "../../components/home/PopularCategories";
-import SmallBanner from "../../components/home/SmallBanner";
-import { Listing } from "../../components/Listing";
+import { PopularCategories } from "./home/PopularCategories";
+import SmallBanner from "./home/SmallBanner";
+import { Listing } from "./Listing";
+import Breadcrumb from "./globals/BreadCrumb";
 
 const SubCategories = (props) => {
   const {

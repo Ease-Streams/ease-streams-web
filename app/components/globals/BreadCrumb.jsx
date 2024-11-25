@@ -1,6 +1,6 @@
+import { convertToSlug, normaizeString } from "@/app/utils/helper";
 import Link from "next/link";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { convertToSlug } from "../../app/utils/helper";
 const Breadcrumb = (props) => {
   const { data } = props;
   return (
@@ -11,7 +11,7 @@ const Breadcrumb = (props) => {
             href={"/"}
             target="_self"
             className="inline-flex items-center  gap-1 font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
-            home
+            Home
           </a>
         </li>
         {data["category"] && (
@@ -21,7 +21,7 @@ const Breadcrumb = (props) => {
               <a
                 href={`/${convertToSlug(data["category"])}`}
                 className="ms-1 font-medium text-gray-700 hover:text-blue-600 md:ms-2 dark:text-gray-400 dark:hover:text-white">
-                {data["category"]}
+                {normaizeString(data["category"])}
               </a>
             </div>
           </li>
@@ -35,7 +35,7 @@ const Breadcrumb = (props) => {
               className="flex items-center">
               <MdOutlineKeyboardArrowRight size={20} color="gray" />
               <span className="ms-1  font-medium text-gray-700 md:ms-2 dark:text-gray-400">
-                {convertToSlug(data["sub-category"])}
+                {normaizeString(data["sub-category"])}
               </span>
             </a>
           </li>
@@ -49,7 +49,7 @@ const Breadcrumb = (props) => {
               className="flex items-center">
               <MdOutlineKeyboardArrowRight size={20} color="gray" />
               <span className="ms-1  font-medium text-gray-500 md:ms-2 dark:text-gray-400">
-                {convertToSlug(data["product"])}
+                {normaizeString(data["product"])}
               </span>
             </a>
           </li>

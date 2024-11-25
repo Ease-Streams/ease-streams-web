@@ -5,8 +5,8 @@ import { Filter } from "./Filter";
 import { ProductCard } from "./ProductCard";
 import { IoGridOutline } from "react-icons/io5";
 import { CiBoxList, CiFilter } from "react-icons/ci";
-import { normaizeString } from "../app/utils/helper";
 import Pagination from "../components/Pagination";
+import { normaizeString } from "../utils/helper";
 
 export const Listing = (props) => {
   const { title, data, page, totalPages, nextPage, prevPage } = props;
@@ -15,7 +15,7 @@ export const Listing = (props) => {
 
   return (
     <div className="flex w-full gap-4">
-      <Filter showFilter={showFilter} setShowFilter={setShowFilter} />
+      {/* <Filter showFilter={showFilter} setShowFilter={setShowFilter} /> */}
       <div className="flex flex-col relative w-full gap-4">
         <div className="gap-2 flex flex-col">
           <div className="flex  gap-2">

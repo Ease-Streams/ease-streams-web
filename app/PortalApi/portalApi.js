@@ -1,15 +1,15 @@
 import { normalizeSearchTerm } from "../utils/helper";
 
-const API_KEY = process.env.PAYLOAD_CMS_API;
+const api_KEY = process.env.PAYLOAD_CMS_api;
 const PAYLOAD_CMS_SERVER = process.env.PAYLOAD_CMS_SERVER;
 const headers = {
   "Content-Type": "application/json",
-  Authorization: `users API-Key ${API_KEY}`,
+  Authorization: `users api-Key ${api_KEY}`,
 };
 
-const portalApi = {
+const portalapi = {
   getHomePageData: async () => {
-    return await fetch(`${PAYLOAD_CMS_SERVER}api/home?depth=4`, {
+    return await fetch(`${PAYLOAD_CMS_SERVER}/api/home?depth=4`, {
       method: "GET",
     })
       .then((res) => {
@@ -19,21 +19,22 @@ const portalApi = {
       .catch((err) => console.error(err));
   },
   getHomeBanners: async () => {
-    return await fetch(`${PAYLOAD_CMS_SERVER}api/globals/home_banner`, {
+    return await fetch(`${PAYLOAD_CMS_SERVER}/api/globals/home_banner`, {
       method: "GET",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
     })
       .then(async (res) => {
         const data = await res.json();
+        console.log(data, "data");
         return data;
       })
       .catch((err) => console.error(err));
   },
-  getSubCategoryData: async (subCategory, page = 1) => {
+  getSubcategoryByCategory: async (category, page = 1) => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/products?depth=4&page=${page}&where[parentcategoryref.title][like]=${subCategory?.replaceAll(
-        "-",
-        " "
-      )}`,
+      `${PAYLOAD_CMS_SERVER}/api/subcategory?select[title]=true&select[categoryImage]=true&select[slug]=true&select[categoryImage.image]=true&where[categoryRef.slug][equals]=${category}&where[isActive][equals]=true`,
       {
         method: "GET",
       }
@@ -45,14 +46,62 @@ const portalApi = {
       .catch((err) => console.error(err));
   },
 
-  getCategoryData: async (category, page = 1) => {
+  getCategoryData: async (category) => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/parentcategory?where[rootCategoryRef.title][like]=${category.replaceAll(
-        "-",
-        " "
-      )}&depth=4&page=${page}`,
+      `${PAYLOAD_CMS_SERVER}/api/category?where[slug][equals]=${category}&where[isActive][equals]=true`,
       {
         method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+  getSubCategoryData: async (category) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}/api/subcategory?where[itemSlug][equals]=${category}&where[isActive][equals]=true`,
+      {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+  getAllSubCategories: async (category, page = 1) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}/api/subcategory?select[title]=true&select[categoryImage]=true&select[slug]=true&select[itemSlug]=true&where[isActive][equals]=true`,
+      {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
+      }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+  getAllCategories: async (category, page = 1) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}/api/category?select[title]=true&select[categoryImage]=true&select[slug]=true`,
+      {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
       }
     )
       .then(async (res) => {
@@ -64,7 +113,7 @@ const portalApi = {
 
   getBrandData: async (brand, page = 1) => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/brands?where[title][like]=${brand.replaceAll(
+      `${PAYLOAD_CMS_SERVER}/api/brands?where[title][like]=${brand.replaceAll(
         "-",
         " "
       )}`,
@@ -80,7 +129,7 @@ const portalApi = {
   },
   getProductsByBrand: async (brand, page = 1) => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/products?where[brandsRef.title][contains]=${brand.replaceAll(
+      `${PAYLOAD_CMS_SERVER}/api/products?where[brandsRef.title][contains]=${brand.replaceAll(
         "-",
         " "
       )}&depth=4&page=${page}`,
@@ -97,7 +146,7 @@ const portalApi = {
 
   getProductDetailsWithItemCode: async (itemCode) => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/products?where[itemCode][equals]=${itemCode}&depth=3`,
+      `${PAYLOAD_CMS_SERVER}/api/products?where[itemCode][equals]=${itemCode}&depth=3`,
       {
         method: "GET",
       }
@@ -112,7 +161,7 @@ const portalApi = {
     searchTerm = normalizeSearchTerm(searchTerm);
 
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}api/products?where[or][0][searchtagsRef.title][like]=${searchTerm}&where[or][1][title][like]=${searchTerm}&depth=3&page=${page}`,
+      `${PAYLOAD_CMS_SERVER}/api/products?where[or][0][searchtagsRef.title][like]=${searchTerm}&where[or][1][title][like]=${searchTerm}&depth=3&page=${page}`,
       {
         method: "GET",
       }
@@ -125,4 +174,4 @@ const portalApi = {
   },
 };
 
-export default portalApi;
+export default portalapi;

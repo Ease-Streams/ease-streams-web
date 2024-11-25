@@ -1,7 +1,4 @@
-"use client";
-// import { convertToSlug } from "@/app/utils/helper";
 import { FaWhatsapp } from "react-icons/fa6";
-import { convertToSlug } from "../utils/helper";
 
 export const ProductCard = (props) => {
   const { gridView, data } = props;
@@ -9,31 +6,26 @@ export const ProductCard = (props) => {
   return (
     <a
       title={data?.title}
-      href={`/${convertToSlug(
-        data?.parentcategoryref?.rootCategoryRef?.title
-      )}/${convertToSlug(data?.parentcategoryref?.title)}/${convertToSlug(
-        data?.title
-      )}-${data?.itemCode}`}
-      className={`bg-white group rounded-lg shadow-sm border hover:shadow-xl border-gray-200 flex min-w-[200px] max-w-[230px] ${
-        gridView && "flex-col"
-      }  w-full`}>
-      <div className="p-4">
+      href={`/${data?.slug}`}
+      className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex min-w-[200px] max-w-[230px] flex-col w-full`}>
+      <div className="">
         <img
-          src={
-            data?.productimages?.length > 0 &&
-            data?.productimages[0]?.image?.url
-          }
+          src={`${
+            data?.productImages?.length > 0
+              ? `${process.env.PAYLOAD_CMS_SERVER}${data?.productImages[0]?.image?.url}`
+              : "/placeholder.webp"
+          }`}
           alt={
-            data?.productimages?.length > 0 &&
-            data?.productimages[0]?.image?.alt
+            data?.productImages?.length > 0 &&
+            data?.productImages[0]?.image?.alt
           }
           height={100}
           width={100}
-          className="w-full h-auto mb-4 max-w-[140px] m-auto transition  ease-out group-hover:scale-110"
+          className="w-full h-auto m-auto transition  ease-out group-hover:scale-110"
         />
       </div>
       <div className="bg-gray-100 p-4 flex-grow">
-        <h2 className="text-sm  text-gray-800">
+        <h2 className="text-sm lg:text-md   text-[#29698F] font-semibold">
           {data?.title.length > 20
             ? data?.title.substring(0, 20) + "..."
             : data?.title}
