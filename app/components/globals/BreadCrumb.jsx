@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-import { convertToSlug } from "@/app/utils/helper";
-=======
 import { convertToSlug, normaizeString } from "@/app/utils/helper";
-import Link from "next/link";
->>>>>>> 19c6c7b50706a3f6ef8f8b4449cb6d1c231ae76d
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 const Breadcrumb = (props) => {
   const { data } = props;
