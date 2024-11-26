@@ -54,7 +54,7 @@ const page = async (props) => {
                     className="flex flex-col gap-5 items-center py-3 border-b-2 border-dashed border-gray-300"
                     key={index}>
                     <h2 className="text-2xl font-semibold">{item?.title}</h2>
-                    <p className="hidden">{item.content}</p>
+
                     <div className="flex flex-wrap gap-12 justify-center">
                       {item.subCategories &&
                         item?.subCategories?.map((subCategory, index) => (
@@ -76,6 +76,7 @@ const page = async (props) => {
                     <h3 className="text-xl font-semibold text-left">
                       {item?.title}
                     </h3>
+                    <p className="hidden">{item.content}</p>
                     <div className="flex flex-wrap gap-12">
                       {item.brands &&
                         item?.brands?.map((brand, index) => (
