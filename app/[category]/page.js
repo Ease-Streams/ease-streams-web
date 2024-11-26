@@ -25,16 +25,14 @@ const page = async (props) => {
           <Breadcrumb data={breadcrumb} />
           <div className="flex flex-col w-full">
             <div className="flex flex-col lg:flex-row items-center">
-              {category?.headingContent && (
-                <div className=" order-2 lg:order-1">
-                  <div
-                    className="!text-sm lg:!text-md"
-                    dangerouslySetInnerHTML={{
-                      __html: category?.headingContent,
-                    }}></div>
-                </div>
-              )}
-              {category?.headingImage && (
+              <div className=" order-2 lg:order-1">
+                <div
+                  className="!text-sm lg:!text-md"
+                  dangerouslySetInnerHTML={{
+                    __html: category?.headingContent,
+                  }}></div>
+              </div>
+              {category?.headingImage?.url && (
                 <Image
                   unoptimized={true}
                   height="200"
@@ -54,7 +52,7 @@ const page = async (props) => {
                     className="flex flex-col gap-5 items-center py-3 border-b-2 border-dashed border-gray-300"
                     key={index}>
                     <h2 className="text-2xl font-semibold">{item?.title}</h2>
-
+                    <p className="hidden">{item.content}</p>
                     <div className="flex flex-wrap gap-12 justify-center">
                       {item.subCategories &&
                         item?.subCategories?.map((subCategory, index) => (
@@ -76,7 +74,6 @@ const page = async (props) => {
                     <h3 className="text-xl font-semibold text-left">
                       {item?.title}
                     </h3>
-                    <p className="hidden">{item.content}</p>
                     <div className="flex flex-wrap gap-12">
                       {item.brands &&
                         item?.brands?.map((brand, index) => (
