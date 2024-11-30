@@ -18,7 +18,7 @@ export const PopularCategories = (props) => {
         </div>
       )}
       <div className="flex overflow-auto scroll gap-3 ">
-        {categories.map((category, index) => (
+        {categories?.map((category, index) => (
           <CategoryCard key={index} data={category} frompage={frompage} />
         ))}
       </div>

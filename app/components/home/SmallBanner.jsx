@@ -22,7 +22,7 @@ const SmallBanner = (props) => {
             className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
             data-carousel="slide">
             <div className="relative h-[150px] overflow-hidden rounded-lg ">
-              {banners.map((item, index) => (
+              {banners?.map((item, index) => (
                 <div
                   key={index}
                   className="hidden duration-1000 ease-in-out"

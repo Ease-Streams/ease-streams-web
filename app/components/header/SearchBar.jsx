@@ -155,12 +155,12 @@ const SearchBar = () => {
               ref={dropdownRef}
               className="absolute w-full text-sm bg-white border rounded-md shadow-lg p-2 mt-2 top-[34px] z-10 max-h-[400px] overflow-y-auto">
               <ul>
-                {results.searchtags.length > 0 && (
+                {results.searchtags?.length > 0 && (
                   <>
                     <li className="bg-gray-100 p-2 font-semibold text-gray-500">
                       Suggestions
                     </li>
-                    {results.searchtags.map((result) => (
+                    {results.searchtags?.map((result) => (
                       <>
                         <li
                           key={result.id}
@@ -178,7 +178,7 @@ const SearchBar = () => {
                     <li className="bg-gray-100 p-2 font-semibold text-gray-500">
                       Products
                     </li>
-                    {results.products.map((result) => (
+                    {results.products?.map((result) => (
                       <>
                         <li
                           key={result.id}

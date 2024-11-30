@@ -1,6 +1,6 @@
 export const Banner = (props) => {
   const { data } = props;
-  const banners = data?.banners || data;
+  const banners = data?.banners || [];
   return (
     <>
       <div
@@ -8,7 +8,8 @@ export const Banner = (props) => {
         className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
         data-carousel="slide">
         <div className="relative h-[200px] overflow-hidden rounded-lg ">
-          {banners?.map((item, index) => (
+          { banners &&
+          banners?.map((item, index) => (
             <div
               key={index}
               className="hidden duration-[500] ease-in-out"

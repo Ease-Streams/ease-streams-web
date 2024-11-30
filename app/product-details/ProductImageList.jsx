@@ -22,7 +22,7 @@ const ProductImageList = ({ productimages }) => {
       />
       <div className="flex gap-2 flex-wrap items-center">
         {productimages &&
-          productimages.map((image, index) => (
+          productimages?.map((image, index) => (
             <button
               className="border border-gray-200 rounded-lg p-1 flex justify-center items-center"
               key={index}
