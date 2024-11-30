@@ -21,7 +21,7 @@ export const Banner = (props) => {
                   height={300}
                   width={1400}
                   loading="eager"
-                  src={`${process.env.PAYLOAD_CMS_SERVER}${item.image.url}`}
+                  src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${item.image.url}`}
                   className="absolute block w-full h-full aspect-auto"
                   alt={item.image.alt}
                 />

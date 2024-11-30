@@ -11,7 +11,7 @@ const SubitemItemList = ({ item, selected, index }) => {
       <div className="flex gap-3 items-center">
         {/* {item?.itemImage && (
           <img
-            src={`${process.env.PAYLOAD_CMS_SERVER}${item?.itemImage[0]?.image.url}`}
+            src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${item?.itemImage[0]?.image.url}`}
             height={34}
             width={50}
             className={`h-[34px] object-contain max-w-[50px] max-h-[34px]`}
