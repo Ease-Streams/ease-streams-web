@@ -77,7 +77,11 @@ const ProductSections = ({ productList }) => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 mx-auto">
             {item?.products.map((product, index) => (
-              <ProductCard key={index} data={product} />
+              <ProductCard
+                key={index}
+                data={product}
+                PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
+              />
             ))}
           </div>
         </section>

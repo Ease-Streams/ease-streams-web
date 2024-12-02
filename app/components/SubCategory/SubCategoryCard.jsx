@@ -12,7 +12,7 @@ export default function SubCategoryCard({ category }) {
         className="h-[150px] w-[150px] rounded-full object-fit border-2 shadow-sm"
         src={
           category?.categoryImage?.length > 0
-            ? `${process.env.PAYLOAD_CMS_SERVER}${
+            ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${
                 category?.categoryImage && category?.categoryImage[0]?.image.url
               }`
             : "images/placeholder.webp"

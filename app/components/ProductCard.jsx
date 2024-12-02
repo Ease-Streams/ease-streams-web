@@ -1,7 +1,7 @@
 import { FaWhatsapp } from "react-icons/fa6";
 
 export const ProductCard = (props) => {
-  const { gridView, data } = props;
+  const { gridView, data, PAYLOAD_CMS_IMG_SERVER } = props;
   // console.log(data, "data");
   return (
     <a
@@ -12,7 +12,7 @@ export const ProductCard = (props) => {
         <img
           src={`${
             data?.productImages?.length > 0
-              ? `${process.env.PAYLOAD_CMS_SERVER}${data?.productImages[0]?.image?.url}`
+              ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${data?.productImages[0]?.image?.url}`
               : "/placeholder.webp"
           }`}
           alt={

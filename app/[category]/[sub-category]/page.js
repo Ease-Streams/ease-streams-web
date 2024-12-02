@@ -38,7 +38,7 @@ const Page = async ({ params }) => {
         </div>
         <CategoryContent
           categoryData={subCategory}
-          PAYLOAD_IMG_SERVER={process.env.PAYLOAD_CMS_SERVER}
+          PAYLOAD_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
         />
       </div>
       <div className="hidden lg:flex p-2 flex-start">

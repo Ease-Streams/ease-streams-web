@@ -39,8 +39,8 @@ const page = async (props) => {
                   unoptimized={true}
                   height="200"
                   width="200"
-                  className="max-w-[200px] mt-2 lg:mt-0 order-1 lg:order-2 p-1"
-                  src={`${process.env.PAYLOAD_CMS_SERVER}${category?.headingImage?.url}`}
+                  className="max-w-[200px] mt-2 lg:mt-0 order-1 lg:order-2 p-1 h-[200px]"
+                  src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.headingImage?.url}`}
                 />
               )}
             </div>
@@ -84,7 +84,7 @@ const page = async (props) => {
                               className=""
                               key={index}>
                               <img
-                                src={`${process.env.PAYLOAD_CMS_SERVER}${brand?.image.url}`}
+                                src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${brand?.image.url}`}
                                 alt={brand?.image?.alt}
                                 height={150}
                                 width={150}
@@ -100,7 +100,7 @@ const page = async (props) => {
           </div>
           <CategoryContent
             categoryData={category}
-            PAYLOAD_IMG_SERVER={process.env.PAYLOAD_CMS_SERVER}
+            PAYLOAD_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
           />
         </div>
       </div>
