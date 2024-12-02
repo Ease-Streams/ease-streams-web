@@ -38,7 +38,7 @@ export const ProductCard = (props) => {
           <button className="mt-4 w-full border-green-500 text-green-600 hover:text-white text-xs font-semibold max-w-[30px] flex items-center justify-center border-[2px] hover:bg-green-600  p-2 rounded-md">
             <FaWhatsapp size={15} />
           </button>
-          <button className="mt-4 w-full whitespace-nowrap bg-blue-500 text-xs font-semibold hover:bg-blue-600 text-white px-3 p-1 py-2 rounded-md">
+          <button className="mt-4 w-full whitespace-nowrap bg-[#03A7E8] text-xs font-semibold hover:bg-[#2f9dc8] text-white px-3 p-1 py-2 rounded-md">
             Send Enquiry
           </button>
           {/* <button className="mt-4 w-full bg-[#52BA47] text-xs font-semibold hover:bg-green-500 text-white p-1 py-2 rounded-md">

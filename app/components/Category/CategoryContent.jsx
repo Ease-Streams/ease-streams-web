@@ -72,13 +72,13 @@ const CategoryContent = ({ categoryData, PAYLOAD_IMG_SERVER }) => {
                       {/* Show Read More / Less Button */}
 
                       <div className="flex gap-3 mt-3">
-                        {index === 0 && (
+                        {/* {index === 0 && (
                           <a
                             href=""
                             className="px-6 py-3 bg-[#66d7ff] text-white rounded-full cursor-pointer font-bold">
                             {"Contact Us"}
                           </a>
-                        )}
+                        )} */}
                         {isContentOverflowing[index] && (
                           <button
                             onClick={() => toggleContent(index)}

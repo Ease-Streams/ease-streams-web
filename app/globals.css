@@ -49,15 +49,3 @@ h5 {
 h6 {
   @apply text-sm;
 }
-a:-webkit-any-link:active {
-  color: red !important;
-}
-/* Highlight navigation link when its corresponding section is targeted */
-#section_0:target nav .nav-link[href="#section_0"],
-#section_1:target ~ nav .nav-link[href="#section_1"],
-#section_2:target ~ nav .nav-link[href="#section_2"],
-#section_3:target ~ nav .nav-link[href="#section_3"] {
-  background-color: #29698f; /* Highlight background */
-  color: white; /* Highlight text */
-  font-weight: bold; /* Optional: Make the text bold */
-}

@@ -15,19 +15,19 @@ const Header = () => {
           <SearchBar />
         </div>
         <div className=" hidden lg:flex flex-grow justify-end">
-          <button className="border-[2px] lg:p-2 lg:px-3 flex items-center text-green-600 font-medium gap-1 border-none whitespace-nowrap">
-            <IoIosSend size={25} />
+          {/* <button className="border-[2px] lg:p-2 lg:px-3 flex items-center gap-2 border-none whitespace-nowrap">
+            <IoIosSend className="text-xl" />
             <span className="text-md">RFQ</span>
           </button>
           <button className="border-[2px] lg:p-2 lg:px-3 flex items-center gap-2 border-none whitespace-nowrap">
             <FaRegCircleUser className="text-xl" />
             <span className="text-md">Login</span>
-          </button>
+          </button> */}
 
-          <button className="border-[2px] lg:p-2 lg:px-3  items-center gap-2 justify-center border-none  hidden lg:flex">
+          {/* <button className="border-[2px] lg:p-2 lg:px-3  items-center gap-2 justify-center border-none  hidden lg:flex">
             <BiHeart size={20} />
             <span className="text-md">Wishlist</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
