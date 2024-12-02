@@ -11,12 +11,7 @@ const portalapi = {
   getHomePageData: async () => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/home?_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then((res) => {
         const data = res.json();
@@ -27,12 +22,7 @@ const portalapi = {
   getHomeBanners: async () => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/globals/home_banner?_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -44,12 +34,7 @@ const portalapi = {
   getSubcategoryByCategory: async (category, page = 1) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/subcategory?select[title]=true&select[categoryImage]=true&select[slug]=true&select[categoryImage.image]=true&where[categoryRef.slug][equals]=${category}&where[isActive][equals]=true&_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -61,12 +46,7 @@ const portalapi = {
   getCategoryData: async (category) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/category?where[slug][equals]=${category}&where[isActive][equals]=true&_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -79,12 +59,7 @@ const portalapi = {
   getSubCategoryData: async (category) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/subcategory?where[itemSlug][equals]=${category}&where[isActive][equals]=true&_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -95,12 +70,7 @@ const portalapi = {
   getAllSubCategories: async (category, page = 1) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/subcategory?select[title]=true&select[categoryImage]=true&select[slug]=true&select[itemSlug]=true&where[isActive][equals]=true&_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -111,12 +81,7 @@ const portalapi = {
   getAllCategories: async (category, page = 1) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/category?select[title]=true&select[categoryImage]=true&select[slug]=true&_${new Date().getTime()}`,
-      {
-        method: "GET",
-        headers: {
-          "Cache-Control": "no-cache",
-        },
-      }
+      { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -131,9 +96,7 @@ const portalapi = {
         "-",
         " "
       )}&_${new Date().getTime()}`,
-      {
-        method: "GET",
-      }
+     { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -147,9 +110,7 @@ const portalapi = {
         "-",
         " "
       )}&depth=4&page=${page}&_${new Date().getTime()}`,
-      {
-        method: "GET",
-      }
+     { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -161,9 +122,7 @@ const portalapi = {
   getProductDetailsWithItemCode: async (itemCode) => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/products?where[itemCode][equals]=${itemCode}&depth=3&_${new Date().getTime()}`,
-      {
-        method: "GET",
-      }
+     { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
@@ -176,9 +135,7 @@ const portalapi = {
 
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/products?where[or][0][searchtagsRef.title][like]=${searchTerm}&where[or][1][title][like]=${searchTerm}&depth=3&page=${page}&_${new Date().getTime()}`,
-      {
-        method: "GET",
-      }
+     { cache: 'no-store' }
     )
       .then(async (res) => {
         const data = await res.json();
