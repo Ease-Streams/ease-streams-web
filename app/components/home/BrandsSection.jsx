@@ -9,8 +9,8 @@ const BrandsSection = ({ data }) => (
       </div>
     )}
     <div className="flex overflow-auto gap-12 pt-2">
-      {data?.brandRefs.map((brand) => (
-        <a href={brand.slug} className="w-[120px] lg:w-[150px] p-2 border-2">
+      {data?.brandRefs.map((brand,index) => (
+        <a title={brand?.title} href={brand.slug} className="w-[120px] lg:w-[150px] p-2 border-2" key={index}>
           <img
             src={
               brand?.image?.url
