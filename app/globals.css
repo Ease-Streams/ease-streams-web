@@ -49,3 +49,7 @@ h5 {
 h6 {
   @apply text-sm;
 }
+
+[data-f-id="pbf"] {
+  display: none !important;
+}
