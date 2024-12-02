@@ -29,7 +29,7 @@ const Page = async ({ params }) => {
 
         <div className="flex gap-3 flex-col lg:flex-row ">
           {/* Sidebar with navigation links */}
-          <div className="z-10 flex flex-col gap-2 lg:sticky top-20 w-full lg:max-w-[280px] xl:max-w-[350px]">
+          <div className="z-10 flex flex-col gap-2 lg:sticky top-20 w-full lg:max-w-[280px] xl:max-w-[310px]">
             <SubCategoryList productList={subCategory?.productList || []} />
           </div>
 

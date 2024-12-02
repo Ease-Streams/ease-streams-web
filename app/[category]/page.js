@@ -55,7 +55,7 @@ const page = async (props) => {
                       {item?.title}
                     </h2>
                     <p className="hidden">{item.content}</p>
-                    <div className="flex overflow-auto gap-12">
+                    <div className="flex overflow-auto gap-5 lg:gap-9">
                       {item.subCategories &&
                         item?.subCategories?.map((subCategory, innerIndex) => (
                           <div className="" key={innerIndex}>

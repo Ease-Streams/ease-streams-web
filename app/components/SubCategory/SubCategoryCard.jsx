@@ -9,17 +9,17 @@ export default function SubCategoryCard({ category }) {
       <img
         height={150}
         width={150}
-        className="h-[120px] w-[120px] lg:h-[150px] lg:w-[150px] rounded-full object-fit border-2 shadow-sm"
+        className="min-h-[120px] min-w-[120px] lg:min-h-[150px] lg:min-w-[150px] rounded-full object-fit border-2 shadow-sm"
         src={
-          category?.categoryImage
+          category?.categoryImage?.length > 0
             ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`
-            : "images/placeholder.webps"
+            : "images/placeholder.webp"
         }
         alt={`${
           category?.categoryImage && category?.categoryImage[0]?.image.alt
         }`}
       />
-      <span className="font-semibold text-center h-[50px] text-sm lg:text-md">
+      <span className="font-semibold text-center min-h-[50px] text-sm lg:text-md">
         {category?.title}
       </span>
     </a>

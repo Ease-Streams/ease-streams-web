@@ -75,7 +75,7 @@ const ProductSections = ({ productList }) => {
               )}
             </details>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 mx-auto">
             {item?.products.map((product, index) => (
               <ProductCard
                 key={index}
