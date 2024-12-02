@@ -80,7 +80,7 @@ const ProductSections = ({ productList }) => {
               <ProductCard
                 key={index}
                 data={product}
-                PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
+                PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
               />
             ))}
           </div>
