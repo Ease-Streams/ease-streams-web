@@ -13,6 +13,9 @@ const portalapi = {
       `${PAYLOAD_CMS_SERVER}/api/home?_${new Date().getTime()}`,
       {
         method: "GET",
+        headers: {
+          "Cache-Control": "no-cache",
+        },
       }
     )
       .then((res) => {
