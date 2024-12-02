@@ -5,36 +5,36 @@ export const Banner = (props) => {
     <>
       <div
         id="default-carousel"
-        className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
+        className="relative w-full h-[150px] lg:h-[250px] z-0"
         data-carousel="slide">
-        <div className="relative h-[200px] overflow-hidden rounded-lg ">
-          { banners &&
-          banners?.map((item, index) => (
-            <div
-              key={index}
-              className="hidden duration-[500] ease-in-out"
-              data-carousel-item>
-              <a
-                title={item.alt || ""}
-                href={item.urlLink ? item.urlLink : "#"}>
-                <img
-                  height={300}
-                  width={1400}
-                  loading="eager"
-                  src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${item.image.url}`}
-                  className="absolute block w-full h-full aspect-auto"
-                  alt={item.image.alt}
-                />
-              </a>
-            </div>
-          ))}
+        <div className="relative h-[120px] lg:h-[220px] overflow-hidden rounded-lg ">
+          {banners &&
+            banners?.map((item, index) => (
+              <div
+                key={index}
+                className="hidden duration-[500] ease-in-out"
+                data-carousel-item>
+                <a
+                  title={item.alt || ""}
+                  href={item.urlLink ? item.urlLink : "#"}>
+                  <img
+                    height={300}
+                    width={1400}
+                    loading="eager"
+                    src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${item.image.url}`}
+                    className="absolute block w-full h-full aspect-auto"
+                    alt={item.image.alt}
+                  />
+                </a>
+              </div>
+            ))}
         </div>
-        <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+        <div className="absolute z-30 flex -translate-x-1/2 bottom-3 left-1/2 space-x-3 rtl:space-x-reverse mt-2">
           {banners?.map((item, index) => (
             <button
               key={index}
               type="button"
-              className="w-3 h-3 rounded-full"
+              className="w-3 h-3 rounded-full mt-2"
               aria-current="true"
               aria-label="Slide 1"
               data-carousel-slide-to="0"></button>

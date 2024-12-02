@@ -3,7 +3,7 @@
 import { PopularCategories } from "./home/PopularCategories";
 import SmallBanner from "./home/SmallBanner";
 import { Listing } from "./Listing";
-import Breadcrumb from "./globals/BreadCrumb";
+import Breadcrumb from "./globals/Breadcrumb";
 
 const SubCategories = (props) => {
   const {

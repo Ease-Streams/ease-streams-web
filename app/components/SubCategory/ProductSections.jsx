@@ -44,7 +44,7 @@ const ProductSections = ({ productList }) => {
           <div className="w-full">
             <details className="group rounded-md">
               <summary className="cursor-pointer font-medium text-lg flex items-center justify-between">
-                <div className="flex justify-between w-full mr-2 pb-6 items-center">
+                <div className="flex justify-between w-full mr-2 pb-6 lg:px-4 items-center">
                   <h2 className="text-xl lg:text-3xl font-bold max-w-max text-[#03A7E8]">
                     {item?.title}
                   </h2>

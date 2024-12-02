@@ -1,7 +1,7 @@
 "use cient";
 
 import { Listing } from "./Listing";
-import Breadcrumb from "./globals/BreadCrumb";
+import Breadcrumb from "./globals/Breadcrumb";
 import SmallBanner from "./home/SmallBanner";
 
 const ProductList = (props) => {

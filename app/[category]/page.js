@@ -1,7 +1,7 @@
 import Image from "next/image";
 import portalApi from "../PortalApi/portalApi";
 import CategoryContent from "../components/Category/CategoryContent";
-import Breadcrumb from "../components/globals/BreadCrumb";
+import Breadcrumb from "../components/globals/Breadcrumb";
 import { AdBanner } from "../components/home/AdBanner";
 import SubCategoryCard from "../components/SubCategory/SubCategoryCard";
 
@@ -24,11 +24,11 @@ const page = async (props) => {
         <div className="flex flex-col gap-5 overflow-scroll">
           <Breadcrumb data={breadcrumb} />
           <div className="flex flex-col w-full">
-            <div className="flex flex-col lg:flex-row items-center">
+            <div className="flex flex-col lg:flex-row items-center pb-2 gap-3">
               {category?.headingContent && (
                 <div className=" order-2 lg:order-1">
                   <div
-                    className="!text-sm lg:!text-md"
+                    className="!text-sm lg:!text-base"
                     dangerouslySetInnerHTML={{
                       __html: category?.headingContent,
                     }}></div>
@@ -39,7 +39,7 @@ const page = async (props) => {
                   unoptimized={true}
                   height="200"
                   width="200"
-                  className="max-w-[200px] mt-2 lg:mt-0 order-1 lg:order-2 p-1 h-[200px]"
+                  className="rounded-full object-fit border-2 max-w-[120px] lg:max-w-[150px] mt-2 lg:mt-0 order-1 lg:order-2 p-1 h-[120px] lg:h-[150px]"
                   src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.headingImage?.url}`}
                 />
               )}
@@ -49,14 +49,16 @@ const page = async (props) => {
               {category?.subCategoryList &&
                 category?.subCategoryList?.map((item, index) => (
                   <div
-                    className="flex flex-col gap-5 items-center py-3 border-t-2 border-dashed border-gray-300"
+                    className="flex flex-col gap-5  py-3 border-t-2 border-dashed border-gray-300"
                     key={index}>
-                    <h2 className="text-2xl font-semibold">{item?.title}</h2>
+                    <h2 className="text-md lg:text-2xl font-semibold">
+                      {item?.title}
+                    </h2>
                     <p className="hidden">{item.content}</p>
-                    <div className="flex flex-wrap gap-12 lg:gap-24 justify-center">
+                    <div className="flex overflow-auto gap-12">
                       {item.subCategories &&
-                        item?.subCategories?.map((subCategory, index) => (
-                          <div className="" key={index}>
+                        item?.subCategories?.map((subCategory, innerIndex) => (
+                          <div className="" key={innerIndex}>
                             <SubCategoryCard category={subCategory} />
                           </div>
                         ))}
@@ -77,12 +79,12 @@ const page = async (props) => {
                       </h3>
                       <div className="flex flex-wrap gap-12">
                         {item.brands &&
-                          item?.brands?.map((brand, index) => (
+                          item?.brands?.map((brand, innerIndex) => (
                             <a
                               href={`/${brand?.slug}`}
                               title={brand.title}
                               className=""
-                              key={index}>
+                              key={innerIndex}>
                               <img
                                 src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${brand?.image.url}`}
                                 alt={brand?.image?.alt}

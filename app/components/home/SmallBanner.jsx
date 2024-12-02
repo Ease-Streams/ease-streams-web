@@ -1,50 +1,50 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
-const SmallBanner = (props) => {
-  const { data } = props;
-  const title = data?.title;
-  const banners = data?.data;
+const SmallBanner = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
   return (
     <>
-      <div className="flex flex-col gap-3">
-        {title && (
+      <div className=" flex flex-col gap-4">
+        {data?.title && (
           <div className="flex gap-3 items-center">
-            <h2 className="text-lg font-bold text-gray-700">{title}</h2>
+            <h2 className="text-lg font-bold text-gray-700">{data?.title}</h2>
             <div className="flex-grow bg-gray-300 h-[2px]"></div>
           </div>
         )}
-        {banners && banners?.length > 0 && (
+        {data?.banners && data?.banners?.length > 0 && (
           <div
             id="default-carousel"
             className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
             data-carousel="slide">
             <div className="relative h-[150px] overflow-hidden rounded-lg ">
-              {banners?.map((item, index) => (
+              {data?.banners?.map((item, index) => (
                 <div
                   key={index}
                   className="hidden duration-1000 ease-in-out"
                   data-carousel-item>
-                  <Link
-                    title={item.image.alt}
-                    href={item.urlLink ? item.urlLink : "#"}>
+                  <a
+                    title={item?.bannerImage?.alt}
+                    href={item.urlLink ? item?.urlLink : "#"}>
                     <img
                       height={300}
                       width={1400}
                       loading="eager"
-                      src={item.image.url}
+                      src={
+                        item?.bannerImage?.url
+                          ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${item?.bannerImage?.url}`
+                          : "images/placeholder.webp"
+                      }
                       className="absolute block w-full h-full aspect-auto"
-                      alt={item.image.alt}
+                      alt={item?.bannerImage?.alt}
                     />
-                  </Link>
+                  </a>
                 </div>
               ))}
             </div>
             <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-              {banners &&
-                banners?.map((item, index) => (
+              {data?.banners &&
+                data?.banners?.map((item, index) => (
                   <button
                     key={index}
                     type="button"

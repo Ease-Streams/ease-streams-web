@@ -10,7 +10,7 @@ const headers = {
 const portalapi = {
   getHomePageData: async () => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}/api/home?depth=4&_${new Date().getTime()}`,
+      `${PAYLOAD_CMS_SERVER}/api/home?_${new Date().getTime()}`,
       {
         method: "GET",
       }
@@ -23,7 +23,7 @@ const portalapi = {
   },
   getHomeBanners: async () => {
     return await fetch(
-      `${PAYLOAD_CMS_SERVER}/api/globals/home_banner&_${new Date().getTime()}`,
+      `${PAYLOAD_CMS_SERVER}/api/globals/home_banner?_${new Date().getTime()}`,
       {
         method: "GET",
         headers: {
@@ -33,6 +33,7 @@ const portalapi = {
     )
       .then(async (res) => {
         const data = await res.json();
+        console.log(data, "datasdasdsa");
         return data;
       })
       .catch((err) => console.error(err));
