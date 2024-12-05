@@ -9,8 +9,8 @@ import SubCategoryList from "@/app/components/SubCategory/SubCategoryList";
 import CategoryContent from "@/app/components/Category/CategoryContent";
 
 const Page = async ({ params }) => {
-  const categorySlug = params["sub-category"];
-  const subCategoryData = await portalapi.getSubCategoryData(categorySlug);
+  const { subcategory } = await params;
+  const subCategoryData = await portalapi.getSubCategoryData(subcategory);
   const subCategory = subCategoryData?.docs[0];
 
   return (

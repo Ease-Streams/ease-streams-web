@@ -8,15 +8,17 @@ export const metadata = {
   keywords: "create next app",
 };
 
-export default async function Page(props) {
-  const { product } = props.params;
-  const itemCode = extractItemCode(product);
-  const productDetails = await portalApi.getProductDetailsWithItemCode(
-    itemCode
-  );
+const Page = async ({ params }) => {
+  const awaitedParams = await params;
+  const { product, subcategory, category } = awaitedParams;
+  const productDetails = await portalApi.getProductDetails(product);
   return (
     <menu>
-      <ProductDetails data={productDetails.docs[0]} breadcrumb={props.params} />
+      <ProductDetails
+        data={productDetails.docs[0]}
+        breadcrumb={awaitedParams}
+      />
     </menu>
   );
-}
+};
+export default Page;

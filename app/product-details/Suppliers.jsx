@@ -38,11 +38,9 @@ const Suppliers = ({ supplierData, brandsData, productData }) => {
                   id="options"
                   name="options"
                   onChange={handleSelectChange}
-                  value={selectedBrand}
+                  defaultValue="All"
                   className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
-                  <option value="All" selected>
-                    All brands
-                  </option>
+                  <option value="All">All brands</option>
                   {brands?.map((brand, index) => (
                     <option key={index} value={brand.title}>
                       {brand.title}

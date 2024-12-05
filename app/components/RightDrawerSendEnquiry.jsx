@@ -64,16 +64,17 @@ function RightDrawerSendEnquiry({ productData }) {
         <hr />
         <br />
         <div className="flex flex-col items-center">
+          {console.log(productData?.productImages, "productData")}
           <Image
             unoptimized={true}
             src={
-              productData?.productImages
-                ? `${productData.productImages[0].image?.url}`
+              productData?.productImages.length > 0
+                ? `${productData?.productImages[0].image?.url}`
                 : "placeholder.webp"
             }
             alt={
-              productData?.productImages
-                ? `${productData.productImages[0].image?.alt}`
+              productData?.productImages.length > 0
+                ? `${productData?.productImages[0].image?.alt}`
                 : "placeholder.webp"
             }
             height={100}

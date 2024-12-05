@@ -3,22 +3,22 @@
 import { useEffect, useState } from "react";
 
 const ProductImageList = ({ productimages }) => {
-  const [mainImage, setMainImage] = useState();
+  const [mainImage, setMainImage] = useState("/images/placeholder.webp");
   useEffect(() => {
     if (productimages) {
       setMainImage(productimages[0]?.image?.url);
     }
   }, []);
   return (
-    <div className="flex flex-col items-center gap-2 w-full lg:max-w-[25%] xl:max-w-[25%] border-r-[1px] border-r-gray-200 lg:sticky lg:top-[22%]">
+    <div className="flex flex-col items-center gap-2 w-full lg:max-w-[25%] xl:max-w-[30%] lg:sticky lg:top-[22%]">
       <img
         src={
           !mainImage ? productimages && productimages[0]?.image?.url : mainImage
         }
         alt={productimages && productimages[0]?.image?.alt}
-        height={350}
-        width={350}
-        className="w-full h-auto mb-4 max-w-[350px] m-auto transition  ease-out group-hover:scale-110"
+        height={400}
+        width={400}
+        className="w-full h-auto mb-4 max-w-[400px] m-auto transition  ease-out group-hover:scale-110 border-2 border-gray-200"
       />
       <div className="flex gap-2 flex-wrap items-center">
         {productimages &&

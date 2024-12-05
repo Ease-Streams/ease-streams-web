@@ -1,6 +1,3 @@
-"use client";
-
-import { PayloadLexicalReactRenderer } from "@atelier-disko/payload-lexical-react-renderer";
 import Image from "next/image";
 import Link from "next/link";
 import { MdOutlineStarPurple500 } from "react-icons/md";
@@ -13,38 +10,42 @@ export const ProductDescription = ({ data }) => {
       </div>
 
       <div className="flex flex-col gap-4 p-4">
-        {data?.productDescription && (
-          <div className="revert-tw">
-            <PayloadLexicalReactRenderer content={data?.productDescription} />
-          </div>
-        )}
         {data?.specification.length > 0 && (
           <>
             <h2 className="text-xl font-semibold mb-2">
               Product Specifications
             </h2>
-            <div className="relative overflow-x-auto">
-              <table className="p-2" suppressHydrationWarning={true}>
-                <tbody>
-                  {data?.specification?.map((element, index) => (
-                    <tr key={index}>
-                      <td className="border-dashed border-[1px] border-gray-400 p-2 bg-gray-100">
-                        {element.key}
-                      </td>
-                      <td className="border-dashed border-[1px] border-gray-400 p-2">
-                        {element.value}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="relative overflow-x-auto flex flex-col gap-4 text-sm">
+              {data?.specification?.map((item, index) => (
+                <div className="" key={index}>
+                  <span className="font-semibold text-base">{item?.title}</span>
+                  <table
+                    className="p-2 mt-2 w-full"
+                    suppressHydrationWarning={true}>
+                    <tbody>
+                      {item?.specifications?.map((element, index) => (
+                        <tr key={index}>
+                          <td className="border-dashed border-[1px] border-gray-400 p-2 bg-gray-100 w-[40%]">
+                            {element.key}
+                          </td>
+                          <td className="border-dashed border-[1px] border-gray-400 p-2 w-[60%]">
+                            {element.value}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ))}
             </div>
           </>
         )}
-        {data?.description && (
+        {data?.topDescription && (
           <>
             <h2 className="text-xl font-semibold ">Product Description</h2>
-            <p className="text-gray-700 text-sm">{data?.description}</p>
+            <p
+              className="text-gray-700 text-sm"
+              dangerouslySetInnerHTML={{ __html: data?.topDescription }}></p>
           </>
         )}
         {data?.brandsRef?.length && (

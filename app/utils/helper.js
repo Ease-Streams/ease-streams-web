@@ -1,17 +1,18 @@
 export const payloadServer = "https://cms.easestreams.com";
 
 export const convertToSlug = (inputString) => {
+  if (!inputString) return "";
   return inputString?.replaceAll("%26", "&").replace(/\s+/g, "-").toLowerCase();
 };
 
 export const normaizeString = (str) => {
   return str
-    .replaceAll("-%26", "-")
-    .split("-")
-    .map(function capitalize(part) {
+    ?.replaceAll("-%26", "-")
+    ?.split("-")
+    ?.map(function capitalize(part) {
       return part.charAt(0).toUpperCase() + part.slice(1);
     })
-    .join(" ");
+    ?.join(" ");
 };
 
 export const extractItemCode = (str) => {
