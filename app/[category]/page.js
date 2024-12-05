@@ -28,7 +28,7 @@ const page = async ({ params, searchParams }) => {
           <div className="flex flex-col w-full">
             <div className="flex flex-col lg:flex-row items-center pb-2 gap-3 lg:gap-16">
               {categoryData?.headingContent && (
-                <div className=" order-2 lg:order-1 !max-w-[80%]">
+                <div className=" order-2 lg:order-1 lg:!max-w-[80%]">
                   <div
                     className="!text-sm lg:!text-base !text-justify"
                     dangerouslySetInnerHTML={{
