@@ -5,9 +5,9 @@ export const ProductDescription = ({ data }) => {
   return (
     <div className="flex flex-col flex-grow">
       <h1 className="text-2xl text-gray-800 font-bold">{data?.title}</h1>
-      <div className="bg-[#0A7205] font-semibold text-xs text-white px-1 p-[2px] flex items-center gap-1 max-w-max rounded">
+      {/* <div className="bg-[#0A7205] font-semibold text-xs text-white px-1 p-[2px] flex items-center gap-1 max-w-max rounded">
         4.8 <MdOutlineStarPurple500 />
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-4 p-4">
         {data?.specification.length > 0 && (
@@ -59,8 +59,8 @@ export const ProductDescription = ({ data }) => {
                       unoptimized={true}
                       src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${element.image.url}`}
                       alt={element.image.alt}
-                      height={50}
-                      width={50}
+                      height={100}
+                      width={100}
                     />
                   </div>
                   <span className="font-semibold">{element?.title}</span>

@@ -19,9 +19,9 @@ const SupplierList = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
             size={30}
           /> */}
           <img
-            height={100}
-            width={100}
-            className="h-auto w-auto max-h-[45px] max-w-[100px] mx-auto object-contain aspect-square"
+            height={80}
+            width={80}
+            className="h-auto w-auto max-w-[80px] mx-auto object-contain aspect-square"
             src={
               data?.logo?.url
                 ? `${PAYLOAD_CMS_IMG_SERVER}${data?.logo?.url}`

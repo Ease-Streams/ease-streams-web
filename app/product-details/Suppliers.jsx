@@ -57,7 +57,7 @@ const Suppliers = ({
           )}
         </div>
         <hr />
-        <div className="flex xl:flex-col flex-wrap gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-1 gap-3">
           {suppliers?.map((supplier, index) => (
             <SupplierList
               data={supplier}

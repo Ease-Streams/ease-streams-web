@@ -25,13 +25,13 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning={true}
         className="bg-gray-100 text-gray-800">
         <div className="sticky top-0 z-30">
-          {/* <Header /> */}
+          <Header />
           <Menu />
         </div>
         <div className="flex flex-col">
           <div className="flex-grow ">
             <div className="my-2">{children}</div>
-            {/* <Footer /> */}
+            <Footer />
           </div>
           <BottomNavigation />
         </div>
