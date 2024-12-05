@@ -57,7 +57,7 @@ export const ProductDescription = ({ data }) => {
                   <div className="bg-gray-100 p-2 flex flex-col rounded-md gap-1">
                     <Image
                       unoptimized={true}
-                      src={element.image.url}
+                      src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${element.image.url}`}
                       alt={element.image.alt}
                       height={50}
                       width={50}

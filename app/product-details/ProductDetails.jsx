@@ -11,7 +11,10 @@ const ProductDetails = ({ data, breadcrumb }) => {
     <div className="flex flex-col gap-4 w-full lg:max-w-[98%] xl:max-w-[95%]  m-auto p-2">
       <Breadcrumb data={breadcrumb} />
       <div className="flex flex-col lg:flex-row items-start gap-5 w-full">
-        <ProductImageList productimages={data?.productimages} />
+        <ProductImageList
+          productimages={data?.productimages}
+          PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+        />
         <div className="flex-grow flex flex-col gap-3 w-full lg:max-w-[60%] xl:max-w-[45%]">
           <ProductDescription data={data} />
         </div>
@@ -19,6 +22,7 @@ const ProductDetails = ({ data, breadcrumb }) => {
           brandsData={brands}
           supplierData={supplierData}
           productData={data}
+          PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
         />
       </div>
     </div>

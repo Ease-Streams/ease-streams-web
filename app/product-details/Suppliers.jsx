@@ -4,7 +4,12 @@ import SupplierList from "./SupplierList";
 import { useEffect, useState } from "react";
 import RightDrawerSendEnquiry from "../components/RightDrawerSendEnquiry";
 
-const Suppliers = ({ supplierData, brandsData, productData }) => {
+const Suppliers = ({
+  supplierData,
+  brandsData,
+  productData,
+  PAYLOAD_CMS_IMG_SERVER,
+}) => {
   const [suppliers, setSuppliers] = useState([]);
   const [brands, setBrands] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("All");
@@ -54,7 +59,11 @@ const Suppliers = ({ supplierData, brandsData, productData }) => {
         <hr />
         <div className="flex xl:flex-col flex-wrap gap-5">
           {suppliers?.map((supplier, index) => (
-            <SupplierList data={supplier} key={index} />
+            <SupplierList
+              data={supplier}
+              key={index}
+              PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
+            />
           ))}
         </div>
       </div>

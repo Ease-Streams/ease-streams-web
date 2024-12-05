@@ -3,7 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
 
-const SupplierList = ({ data }) => {
+const SupplierList = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
   const handleClick = (e) => {
     const selectedSupplier = new CustomEvent("selectedSupplier", {
       detail: data,
@@ -22,7 +22,11 @@ const SupplierList = ({ data }) => {
             height={100}
             width={100}
             className="h-auto w-auto max-h-[45px] max-w-[100px] mx-auto object-contain aspect-square"
-            src={data?.logo?.url}
+            src={
+              data?.logo?.url
+                ? `${PAYLOAD_CMS_IMG_SERVER}${data?.logo?.url}`
+                : "/images/placeholder.webp"
+            }
             alt={data?.logp?.alt}
           />
           <div className="flex  flex-col col-span-2">

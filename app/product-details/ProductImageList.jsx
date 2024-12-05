@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const ProductImageList = ({ productimages }) => {
+const ProductImageList = ({ productimages, PAYLOAD_CMS_IMG_SERVER }) => {
   const [mainImage, setMainImage] = useState("/images/placeholder.webp");
   useEffect(() => {
     if (productimages) {
@@ -13,7 +13,10 @@ const ProductImageList = ({ productimages }) => {
     <div className="flex flex-col items-center gap-2 w-full lg:max-w-[25%] xl:max-w-[30%] lg:sticky lg:top-[22%]">
       <img
         src={
-          !mainImage ? productimages && productimages[0]?.image?.url : mainImage
+          !mainImage
+            ? productimages &&
+              `${PAYLOAD_CMS_IMG_SERVER}${productimages[0]?.image?.url}`
+            : mainImage
         }
         alt={productimages && productimages[0]?.image?.alt}
         height={400}
