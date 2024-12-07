@@ -19,7 +19,7 @@ const SmallBanner = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
             id="default-carousel"
             className="relative w-full max-h-[200px] lg:max-h-[300px] z-0"
             data-carousel="slide">
-            <div className="relative h-[150px] overflow-hidden rounded-lg ">
+            <div className="relative h-[150px] overflow-hidden rounded-md ">
               {data?.banners?.map((item, index) => (
                 <div
                   key={index}

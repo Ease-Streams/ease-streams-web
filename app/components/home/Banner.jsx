@@ -1,13 +1,13 @@
 export const Banner = (props) => {
   const { data } = props;
-  const banners = data?.banners || [];
+  const banners = data?.banners || data || [];
   return (
     <>
       <div
         id="default-carousel"
-        className="relative w-full h-[150px] lg:h-[250px] z-0"
+        className="relative w-full max-h-[230px] lg:max-h-[300px] z-0"
         data-carousel="slide">
-        <div className="relative h-[120px] lg:h-[220px] overflow-hidden rounded-lg ">
+        <div className="relative w-full h-[180px] lg:h-[300px] overflow-hidden rounded-md">
           {banners &&
             banners?.map((item, index) => (
               <div

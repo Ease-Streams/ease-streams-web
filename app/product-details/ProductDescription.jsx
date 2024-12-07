@@ -4,7 +4,6 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 export const ProductDescription = ({ data }) => {
   return (
     <div className="flex flex-col flex-grow">
-      <h1 className="text-2xl text-gray-800 font-bold">{data?.title}</h1>
       {/* <div className="bg-[#0A7205] font-semibold text-xs text-white px-1 p-[2px] flex items-center gap-1 max-w-max rounded">
         4.8 <MdOutlineStarPurple500 />
       </div> */}
@@ -12,9 +11,7 @@ export const ProductDescription = ({ data }) => {
       <div className="flex flex-col gap-4 p-4">
         {data?.specification.length > 0 && (
           <>
-            <h2 className="text-xl font-semibold mb-2">
-              Product Specifications
-            </h2>
+            <h1 className="text-2xl text-gray-800 font-bold">{data?.title}</h1>
             <div className="relative overflow-x-auto flex flex-col gap-4 text-sm">
               {data?.specification?.map((item, index) => (
                 <div className="" key={index}>

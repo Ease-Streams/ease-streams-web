@@ -67,7 +67,6 @@ const Suppliers = ({
           ))}
         </div>
       </div>
-      <RightDrawerSendEnquiry productData={productData} />
     </>
   );
 };

@@ -7,7 +7,7 @@ export const ProductCard = (props) => {
     <a
       title={data?.title}
       href={`/${data?.slug}`}
-      className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex min-w-[180px] max-w-[180px] flex-col w-full`}>
+      className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex  flex-col w-full`}>
       <div className="">
         <img
           src={`${

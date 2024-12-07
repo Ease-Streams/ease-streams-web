@@ -21,7 +21,7 @@ const Page = async ({ params }) => {
           <AdBanner />
         </div>
       </div>
-      <div className="w-full lg:min-w-[75%] lg:max-w-[75%] min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-6 px-2">
+      <div className="w-full lg:min-w-[75%] lg:max-w-[75%] min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-3 px-2">
         <Breadcrumb data={params} />
         {subCategory?.banners?.length > 0 && (
           <Banner data={subCategory.banners} />
@@ -29,7 +29,7 @@ const Page = async ({ params }) => {
 
         <div className="flex gap-3 flex-col lg:flex-row ">
           {/* Sidebar with navigation links */}
-          <div className="z-10 flex flex-col gap-2 lg:sticky top-20 w-full lg:max-w-[280px] xl:max-w-[310px]">
+          <div className="z-10 flex flex-col gap-2 lg:sticky top-20 w-full lg:max-w-[220px] xl:max-w-[280px]">
             <SubCategoryList productList={subCategory?.productList || []} />
           </div>
 

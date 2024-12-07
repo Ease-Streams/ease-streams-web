@@ -40,8 +40,8 @@ const SupplierList = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
               <small className="text-xs text-gray-600">{data.address}</small>
             </div>
             <div className="flex gap-2 flex-grow">
-              <button className="mt-4 w-full border-green-500 max-w-[100px]  gap-1 text-green-600 hover:text-white text-xs font-semibold  flex items-center justify-center border-[2px] hover:bg-green-600  p-[.4rem] rounded-md">
-                <FaWhatsapp size={15} /> Whatsapp
+              <button className="mt-4 border-green-500 max-w-[100px]  gap-1 text-green-600 hover:text-white text-xs font-semibold  flex items-center justify-center border-[2px] hover:bg-green-600  p-[.4rem] rounded-md">
+                <FaWhatsapp size={15} />
               </button>
               <button
                 className="mt-4 w-full whitespace-nowrap max-w-[100px] bg-blue-500 text-xs font-semibold
