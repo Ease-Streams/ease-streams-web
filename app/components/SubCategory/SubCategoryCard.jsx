@@ -9,7 +9,7 @@ export default function SubCategoryCard({ category }) {
       <img
         height={150}
         width={150}
-        className="min-h-[120px] min-w-[120px] lg:min-h-[150px] lg:min-w-[150px] rounded-full object-contain border-2 shadow-sm"
+        className="min-h-[120px]  min-w-[120px] lg:min-h-[150px] lg:min-w-[150px] rounded-full object-contain border-2 shadow-sm"
         src={
           category?.categoryImage?.length > 0
             ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`

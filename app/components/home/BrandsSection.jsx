@@ -8,10 +8,15 @@ const BrandsSection = ({ data }) => (
         <div className="flex-grow bg-gray-300 h-[2px]"></div>
       </div>
     )}
-    <div className="flex overflow-auto gap-12 pt-2">
-      {data?.brandRefs.map((brand,index) => (
-        <a title={brand?.title} href={brand.slug} className="w-[120px] lg:w-[150px] p-2 border-2" key={index}>
+    <div className="flex overflow-auto gap-12 pt-2 items-center">
+      {data?.brandRefs.map((brand, index) => (
+        <a
+          title={brand?.title}
+          href={brand.slug}
+          key={index}
+          className="flex w-full max-w-[120px]">
           <img
+            className="w-[120px] object-contain m-auto"
             src={
               brand?.image?.url
                 ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${brand?.image?.url}`
