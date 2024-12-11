@@ -1,8 +1,6 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SupplierList from "./SupplierList";
-import { useEffect, useState } from "react";
-import RightDrawerSendEnquiry from "../components/RightDrawerSendEnquiry";
 
 const Suppliers = ({
   supplierData,
@@ -13,24 +11,48 @@ const Suppliers = ({
   const [suppliers, setSuppliers] = useState([]);
   const [brands, setBrands] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("All");
+  const [selectedSuppliers, setSelectedSuppliers] = useState([]);
+
   useEffect(() => {
-    // Update the brands state
     setBrands(brandsData);
     if (selectedBrand !== "All") {
-      // Filter suppliers only if selectedBrand is not "All"
       const matchingSuppliers = supplierData.filter((supplier) =>
         supplier.brandsRef.some((brand) => brand.title === selectedBrand)
       );
       setSuppliers(matchingSuppliers);
     } else {
-      // If selectedBrand is "All", show all suppliers or handle accordingly
       setSuppliers(supplierData);
     }
   }, [selectedBrand, brandsData, supplierData]);
 
+  const handleClick = (e,type,data) => {
+    const selectedSupplier = new CustomEvent("selectedSupplier", {
+      detail: data,
+    });
+    window.dispatchEvent(selectedSupplier);
+  };
+
   const handleSelectChange = (event) => {
     setSelectedBrand(event.target.value);
   };
+
+  const handleCheckboxChange = (supplierId) => {
+    setSelectedSuppliers((prevSelected) =>
+      prevSelected.includes(supplierId)
+        ? prevSelected.filter((id) => id !== supplierId) // Deselect supplier
+        : [...prevSelected, supplierId] // Select supplier
+    );
+  };
+
+  const handleSendEnquiry = () => {
+    const selectedSuppliersData = suppliers.filter((supplier) =>
+      selectedSuppliers.includes(supplier.id)
+    );
+    handleClick(e,'single',selectedSuppliersData)
+
+    // Add logic to send inquiry to selected suppliers
+  };
+
   return (
     <>
       <div className="flex flex-col gap-3 w-full lg:max-w-[22%] xl:max-w-[25%] sticky top-[22%]">
@@ -63,9 +85,20 @@ const Suppliers = ({
               data={supplier}
               key={index}
               PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
+              onCheckboxChange={handleCheckboxChange}
+              isSelected={selectedSuppliers.includes(supplier.id)}
+              selectedSuppliers={selectedSuppliers}
+              handleClick={handleClick}
             />
           ))}
         </div>
+        {selectedSuppliers.length > 0 && (
+          <button
+            className="mt-4 bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600"
+            onClick={handleSendEnquiry}>
+            Send Enquiry to Selected Suppliers ({selectedSuppliers.length})
+          </button>
+        )}
       </div>
     </>
   );
