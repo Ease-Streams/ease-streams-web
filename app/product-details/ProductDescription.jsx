@@ -11,7 +11,7 @@ export const ProductDescription = ({ data }) => {
       <div className="flex flex-col gap-4 p-4">
         {data?.specification.length > 0 && (
           <>
-            <h1 className="text-2xl text-gray-800 font-bold">{data?.title}</h1>
+            <h1 className="text-base lg:text-2xl text-gray-800 font-semibold">{data?.itemDescription}</h1>
             <div className="relative overflow-x-auto flex flex-col gap-4 text-sm">
               {data?.specification?.map((item, index) => (
                 <div className="" key={index}>

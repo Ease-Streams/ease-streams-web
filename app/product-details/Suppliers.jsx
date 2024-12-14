@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SupplierList from "./SupplierList";
+import RightDrawerSendEnquiry from "../components/RightDrawerSendEnquiry";
 
 const Suppliers = ({
   supplierData,
@@ -12,6 +13,8 @@ const Suppliers = ({
   const [brands, setBrands] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [selectedSuppliers, setSelectedSuppliers] = useState([]);
+  const [supplier, setSupplier] = useState([]);
+
 
   useEffect(() => {
     setBrands(brandsData);
@@ -25,11 +28,8 @@ const Suppliers = ({
     }
   }, [selectedBrand, brandsData, supplierData]);
 
-  const handleClick = (e,type,data) => {
-    const selectedSupplier = new CustomEvent("selectedSupplier", {
-      detail: data,
-    });
-    window.dispatchEvent(selectedSupplier);
+  const handleClick = (e,data) => {
+    setSupplier(data)
   };
 
   const handleSelectChange = (event) => {
@@ -44,11 +44,11 @@ const Suppliers = ({
     );
   };
 
-  const handleSendEnquiry = () => {
+  const handleSendEnquiry = (e) => {
     const selectedSuppliersData = suppliers.filter((supplier) =>
       selectedSuppliers.includes(supplier.id)
     );
-    handleClick(e,'single',selectedSuppliersData)
+    handleClick(e,selectedSuppliersData)
 
     // Add logic to send inquiry to selected suppliers
   };
@@ -100,6 +100,7 @@ const Suppliers = ({
           </button>
         )}
       </div>
+      <RightDrawerSendEnquiry supplier={supplier} setSupplier={setSupplier} productData={productData} PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER} setSelectedSuppliers={setSelectedSuppliers} />
     </>
   );
 };

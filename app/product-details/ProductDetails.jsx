@@ -2,7 +2,6 @@ import ProductImageList from "./ProductImageList";
 import { ProductDescription } from "./ProductDescription";
 import Suppliers from "./Suppliers";
 import Breadcrumb from "../components/globals/Breadcrumb";
-import RightDrawerSendEnquiry from "../components/RightDrawerSendEnquiry";
 
 const ProductDetails = ({ data, breadcrumb }) => {
   const supplierData = data?.supplierRef;
@@ -25,7 +24,6 @@ const ProductDetails = ({ data, breadcrumb }) => {
           productData={data}
           PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
         />
-        <RightDrawerSendEnquiry productData={data} />
       </div>
     </div>
   );
