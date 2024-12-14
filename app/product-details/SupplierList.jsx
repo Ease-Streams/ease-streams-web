@@ -37,7 +37,7 @@ const SupplierList = ({ data, PAYLOAD_CMS_IMG_SERVER, onCheckboxChange, isSelect
           />
 
           {/* Supplier Details */}
-          <div className="flex flex-col col-span-2">
+          <div className="flex flex-col col-span-2"> 
             <div className="flex flex-col flex-grow relative">
               <p className="text-md font-semibold text-gray-700 flex gap-2 justify-center xl:justify-start">
                 {data.title}
@@ -52,7 +52,7 @@ const SupplierList = ({ data, PAYLOAD_CMS_IMG_SERVER, onCheckboxChange, isSelect
                 <FaWhatsapp size={15} />
               </button>
               <button
-                onClick={(e)=>handleClick(e,'single',data)}
+                onClick={(e)=>handleClick(e,[data])}
                 className="w-full whitespace-nowrap max-w-[90px] p-1 bg-blue-500 text-xs font-semibold hover:bg-blue-600 text-white rounded-md"
                 type="button"
               >

@@ -8,7 +8,8 @@ export const ProductCard = (props) => {
       <a
         title={data?.title}
         href={`/${data?.slug}`}
-        className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex  flex-col w-full`}>
+        className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex  flex-col w-full`}
+      >
         <div className="">
           <img
             src={`${
@@ -26,11 +27,13 @@ export const ProductCard = (props) => {
           />
         </div>
         <div className="bg-gray-100 p-4 flex-grow">
-          <h2 className="text-sm lg:text-md   text-[#29698F] font-semibold h-10">
-            {data?.title.length > 20
-              ? data?.title.substring(0, 20) + "..."
-              : data?.title}
+          <h2
+            title={data?.itemDescription}
+            className="text-sm lg:text-md text-[#29698F] font-semibold min-h-10  line-clamp-3"
+          >
+            {data?.itemDescription}
           </h2>
+
           <p className="text-gray-500 text-xs"> {data?.itemCode}</p>
           {/* <div className="mt-4 text-sm">
           <p className="font-semibold text-gray-800">AED 1,375.50</p>
