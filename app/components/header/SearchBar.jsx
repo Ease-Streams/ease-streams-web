@@ -33,7 +33,8 @@ const SearchBar = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (query.length >= 2) {
+      if (query.length > 2) {
+        setDropdownVisible(true);
         try {
           // Call the fetchSuggestions function with the search term
           const suggestions = await fetchSuggestions(query);
@@ -60,16 +61,12 @@ const SearchBar = () => {
   }, [query]);
 
   const handleInputChange = (e) => {
-    setDropdownVisible(true);
+    if (e.target.value.length > 3) {
+      setDropdownVisible(true);
+    }
     setQuery(e.target.value);
   };
 
-  const handleResultClick = (result) => {
-    const selectedQuery = result.title;
-    setQuery(selectedQuery);
-    localStorage.setItem("searchQuery", selectedQuery); // Store query in local storage
-    setDropdownVisible(false);
-  };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -83,21 +80,7 @@ const SearchBar = () => {
     }
   };
 
-  const handleSuggestionClick = (query) => {
-    if (query.trim()) {
-      localStorage.setItem("searchQuery", query.trim()); // Store query in local storage
-      location.href = `/products/${normalizeSearchTermwithHyphen(
-        query.trim()
-      )}`; // Redirect to products page
-    }
-  };
-  const handleBrandClick = (query) => {
-    if (query.trim()) {
-      localStorage.setItem("searchQuery", query.trim()); // Store query in local storage
-      location.href = `/brand/${normalizeSearchTermwithHyphen(query.trim())}`; // Redirect to products page
-    }
-  };
-
+ 
   // Close dropdown on clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
