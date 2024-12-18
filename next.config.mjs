@@ -13,6 +13,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "easestreams.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
         hostname: "cms.easestreams.com",
         pathname: "/**",
       },
