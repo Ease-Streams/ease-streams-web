@@ -36,14 +36,19 @@ const HomePage = (props) => {
 
   return (
     <menu className="justify-center flex">
-      <div className=" hidden lg:flex  p-2 flex-start">
+      {/* <div className=" hidden lg:flex  p-2 flex-start">
         <div className="flex flex-col gap-2  px-2">
           <AdBanner />
           <AdBanner />
         </div>
-      </div>
-      <div className="w-full lg:min-w-[75%] lg:max-w-[75%]  min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-6 p-2">
-        {homeBanner && <Banner data={homeBanner} />}
+      </div> */}
+      <div className="w-full lg:min-w-[80%] lg:max-w-[80%]  min-[1537px]:min-w-[75%] min-[1537px]:max-w-[75%] flex flex-col gap-6 p-2">
+        {homeBanner && (
+          <Banner
+            data={homeBanner}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
+        )}
         <div className="flex flex-col gap-4">
           {data &&
             data?.map((item) =>
@@ -51,12 +56,12 @@ const HomePage = (props) => {
             )}
         </div>
       </div>
-      <div className=" hidden lg:flex  p-2 flex-start">
+      {/* <div className=" hidden lg:flex  p-2 flex-start">
         <div className="flex flex-col gap-2 px-2">
           <AdBanner />
           <AdBanner />
         </div>
-      </div>
+      </div> */}
     </menu>
   );
 };

@@ -24,7 +24,10 @@ const Page = async ({ params }) => {
       <div className="w-full lg:min-w-[75%] lg:max-w-[75%] min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-3 px-2">
         <Breadcrumb data={params} />
         {subCategory?.banners?.length > 0 && (
-          <Banner data={subCategory.banners} />
+          <Banner
+            data={subCategory.banners}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
         )}
 
         <div className="flex gap-3 flex-col lg:flex-row ">

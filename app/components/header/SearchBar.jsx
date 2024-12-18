@@ -19,6 +19,7 @@ const SearchBar = () => {
     subcategories: [],
   });
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [noResultsFound, setNoResultsFound] = useState(false);
   const dropdownRef = useRef(null);
 
   // Retrieve query from local storage on mount
@@ -38,7 +39,15 @@ const SearchBar = () => {
         try {
           // Call the fetchSuggestions function with the search term
           const suggestions = await fetchSuggestions(query);
-
+          if (
+            !suggestions.products?.docs.length &&
+            !suggestions.categories?.docs.length &&
+            !suggestions.subcategories?.docs.length
+          ) {
+            setNoResultsFound(true);
+          } else {
+            setNoResultsFound(false);
+          }
           if (!suggestions.error) {
             // Set the results state with the fetched data
             setResults({
@@ -63,10 +72,11 @@ const SearchBar = () => {
   const handleInputChange = (e) => {
     if (e.target.value.length > 3) {
       setDropdownVisible(true);
+    } else {
+      setNoResultsFound(false);
     }
     setQuery(e.target.value);
   };
-
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -80,7 +90,6 @@ const SearchBar = () => {
     }
   };
 
- 
   // Close dropdown on clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -206,6 +215,18 @@ const SearchBar = () => {
               </ul>
             </div>
           )}
+
+        {noResultsFound && (
+          <div className="absolute w-full top-9 bg-white border border-gray-300 rounded-lg shadow-xl mt-2 p-3 z-10 max-h-[400px] overflow-y-auto text-sm">
+            <ul>
+              <li>
+                <div className="bg-red-50 px-4 py-2 font-semibold text-red-600 uppercase rounded-md">
+                  No Results Found!
+                </div>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </>
   );

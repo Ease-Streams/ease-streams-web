@@ -7,24 +7,16 @@ export const metadata = {
 import portalApi from "@/app/PortalApi/portalApi";
 import ProductList from "@/app/components/ProductList";
 
-export default async function Home(props) {
-  const { search } = props.params;
-  const { page } = props.searchParams;
+export default async function Home({ params, searchParams }) {
+  const awaitedParams = await params;
+  const awaitedSearchParams = await searchParams;
+  const { search } = awaitedParams;
+  const { page } = awaitedSearchParams;
   const breadcrumb = {
     category: "",
     "sub-category": "",
     product: search,
   };
   const data = await portalApi.getProductSearchList(search, page);
-  return (
-    <ProductList
-      data={data?.docs}
-      page={data?.page}
-      totalPages={data?.totalPages}
-      nextPage={data?.nextPage}
-      prevPage={data?.prevPage}
-      breadcrumb={breadcrumb}
-      title={search}
-    />
-  );
+  return <ProductList data={data} breadcrumb={breadcrumb} title={search} />;
 }

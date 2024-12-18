@@ -12,11 +12,22 @@ const Page = async ({ params }) => {
   const awaitedParams = await params;
   const { product, subcategory, category } = awaitedParams;
   const productDetails = await portalApi.getProductDetails(product);
+  let relatedProducts = await portalApi.getRelatedProducts(product);
+  let relatedSubCategories = await portalApi.getSubcategoryByCategory(
+    category,
+    10
+  );
+  relatedProducts["docs"] = relatedProducts?.docs.filter(
+    (o) => o.itemSlug != product
+  );
+
   return (
     <menu>
       <ProductDetails
         data={productDetails.docs[0]}
         breadcrumb={awaitedParams}
+        relatedProducts={relatedProducts}
+        relatedSubCategories={relatedSubCategories}
       />
     </menu>
   );

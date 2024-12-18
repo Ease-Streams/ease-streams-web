@@ -9,7 +9,7 @@ import Pagination from "../components/Pagination";
 import { normaizeString } from "../utils/helper";
 
 export const Listing = (props) => {
-  const { title, data, page, totalPages, nextPage, prevPage } = props;
+  const { title, data } = props;
   const [gridView, setGridView] = useState(true);
   const [showFilter, setShowFilter] = useState(false);
 
@@ -22,41 +22,44 @@ export const Listing = (props) => {
             <div className="relative top-[2px] gap-1  items-center hidden">
               <button
                 className={` p-1 ${gridView && "bg-gray-200"}`}
-                onClick={() => setGridView(true)}>
+                onClick={() => setGridView(true)}
+              >
                 <IoGridOutline />
               </button>
               <button
                 className={` p-[2px] ${!gridView && "bg-gray-200"}`}
-                onClick={() => setGridView(false)}>
+                onClick={() => setGridView(false)}
+              >
                 <CiBoxList size={20} />
               </button>
             </div>
             <div className="flex justify-between flex-grow">
               {/* Title or the search term */}
-              <h1 className="text-2xl font-bold">
+              {/* <h1 className="text-2xl font-bold">
                 {title && normaizeString(title)}
-              </h1>
+              </h1> */}
               <button onClick={() => setShowFilter(true)} className="lg:hidden">
                 <CiFilter size={20} />
               </button>
             </div>
           </div>
-          <hr />
+          {/* <hr /> */}
         </div>
-        <div
-          className={`grid ${
-            gridView ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4" : ""
-          }  gap-4 items-center`}>
-          {data?.map((product, index) => (
+        <div className={`flex flex-wrap gap-4 items-center justify-center`}>
+          {data?.docs.map((product, index) => (
             <ProductCard data={product} key={index} gridView={gridView} />
           ))}
         </div>
         <hr />
         <Pagination
-          page={page}
-          totalPages={totalPages}
-          prevPage={page > 1 ? page - 1 : null}
-          nextPage={page < totalPages ? page + 1 : null}
+          totalDocs={data.totalDocs}
+          limit={data.limit}
+          page={data.page}
+          totalPages={data.totalPages}
+          hasNextPage={data.hasNextPage}
+          hasPrevPage={data.hasPrevPage}
+          nextPage={data.nextPage}
+          prevPage={data.prevPage}
         />
       </div>
     </div>

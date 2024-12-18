@@ -5,7 +5,8 @@ export default function SubCategoryCard({ category }) {
     <a
       className="flex flex-col items-center justify-center w-[120px] lg:w-[150px]"
       title={category.title}
-      href={`/${category?.slug}`}>
+      href={`/${category?.slug}`}
+    >
       <img
         height={150}
         width={150}
@@ -13,7 +14,7 @@ export default function SubCategoryCard({ category }) {
         src={
           category?.categoryImage?.length > 0
             ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`
-            : "images/placeholder.webp"
+            : "/images/placeholder.webp"
         }
         alt={`${
           category?.categoryImage && category?.categoryImage[0]?.image.alt

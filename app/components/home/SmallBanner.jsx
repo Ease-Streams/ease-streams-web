@@ -16,7 +16,7 @@ const SmallBanner = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
           </div>
         )}
         {data?.banners && data?.banners?.length > 0 && (
-          <Banner data={data} />
+          <Banner data={data} PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER} />
         )}
       </div>
     </>

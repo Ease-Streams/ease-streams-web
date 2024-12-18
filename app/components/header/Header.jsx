@@ -1,10 +1,8 @@
 "use client";
 import SearchBar from "./SearchBar";
-import { FaRegCircleUser } from "react-icons/fa6";
-import { BiHeart } from "react-icons/bi";
 import Logo from "./Logo";
-import { VscSend } from "react-icons/vsc";
-import { IoIosSend } from "react-icons/io";
+import Link from "next/link";
+import { PiPaperPlaneTilt } from "react-icons/pi";
 
 const Header = () => {
   return (
@@ -15,6 +13,12 @@ const Header = () => {
           <SearchBar />
         </div>
         <div className=" hidden lg:flex flex-grow justify-end">
+          <div className="flex gap-4 text-green-600 font-medium">
+            <Link href={"/"} className="flex items-center gap-1">
+              <PiPaperPlaneTilt size={20} />
+              RFQ Marketplace
+            </Link>
+          </div>
           {/* <button className="border-[2px] lg:p-2 lg:px-3 flex items-center gap-2 border-none whitespace-nowrap">
             <IoIosSend className="text-xl" />
             <span className="text-md">RFQ</span>
