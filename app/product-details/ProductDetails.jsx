@@ -26,7 +26,7 @@ const ProductDetails = ({
       <Breadcrumb data={breadcrumb} />
       <div className="flex flex-col lg:flex-row items-start gap-5 w-full">
         <ProductImageList
-          productimages={data?.productimages}
+          productimages={data?.productImages}
           PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
         />
         <div className="flex-grow flex flex-col gap-3 w-full lg:max-w-[60%] xl:max-w-[45%]">

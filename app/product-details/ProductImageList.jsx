@@ -13,9 +13,8 @@ const ProductImageList = ({ productimages, PAYLOAD_CMS_IMG_SERVER }) => {
     <div className="flex flex-col items-center gap-2 w-full lg:max-w-[25%] xl:max-w-[30%] lg:sticky lg:top-[22%]">
       <img
         src={
-          !mainImage
-            ? productimages &&
-              `${PAYLOAD_CMS_IMG_SERVER}${productimages[0]?.image?.url}`
+          productimages[0]?.image?.url
+            ? `${PAYLOAD_CMS_IMG_SERVER}${productimages[0]?.image?.url}`
             : mainImage
         }
         alt={productimages && productimages[0]?.image?.alt}
@@ -31,11 +30,15 @@ const ProductImageList = ({ productimages, PAYLOAD_CMS_IMG_SERVER }) => {
               key={index}
               onClick={() => setMainImage(image?.image?.url)}>
               <img
-                src={image?.image?.url}
+                src={
+                  image?.image?.url
+                    ? `${PAYLOAD_CMS_IMG_SERVER}${image?.image?.url}`
+                    : "/images/placeholder.webp"
+                }
                 alt={image?.image?.alt}
-                height={35}
-                width={35}
-                className="w-full h-auto  max-w-[35px] m-auto transition  ease-out group-hover:scale-110"
+                height={40}
+                width={40}
+                className="w-full h-auto  max-w-[60px] m-auto transition  ease-out group-hover:scale-110"
               />
             </button>
           ))}

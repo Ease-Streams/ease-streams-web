@@ -22,8 +22,7 @@ const page = async (props) => {
       <div className="max-w-7xl mx-auto pt-2">
         {/* Brand Section */}
         <div className="text-center ">
-          <Image
-            unoptimized={true}
+          <img
             src={brandData?.image?.url}
             alt={brandData?.image?.alt}
             width={100}

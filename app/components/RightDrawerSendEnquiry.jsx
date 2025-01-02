@@ -47,8 +47,7 @@ function RightDrawerSendEnquiry({
     <>
       <button
         onClick={toggleDrawer}
-        className="fixed top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-md"
-      >
+        className="fixed top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-md">
         Open Drawer
       </button>
 
@@ -58,21 +57,18 @@ function RightDrawerSendEnquiry({
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isOpen}
-        tabIndex="-1"
-      >
+        tabIndex="-1">
         <button
           onClick={toggleDrawer}
           type="button"
           aria-controls="drawer-send-enquiry"
-          className="absolute top-2.5 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg p-2 dark:hover:bg-gray-600"
-        >
+          className="absolute top-2.5 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg p-2 dark:hover:bg-gray-600">
           <svg
             className="w-5 h-5"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
+            stroke="currentColor">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -90,8 +86,7 @@ function RightDrawerSendEnquiry({
           <br />
           <div className="flex justify-center items-center">
             <div className="flex flex-col items-center gap-2">
-              <Image
-                unoptimized
+              <img
                 src={
                   supplier?.logo
                     ? `${PAYLOAD_CMS_IMG_SERVER}${supplier?.productImages[0].image?.url}`
@@ -112,8 +107,7 @@ function RightDrawerSendEnquiry({
               <div className="flex gap-2 overflow-auto">
                 {supplier?.map((supplier, index) => (
                   <div className="flex flex-col items-center gap-2" key={index}>
-                    <Image
-                      unoptimized
+                    <img
                       src={
                         supplier?.logo
                           ? `${PAYLOAD_CMS_IMG_SERVER}${supplier?.logo?.url}`
@@ -137,8 +131,7 @@ function RightDrawerSendEnquiry({
                       </small>
                       <button
                         onClick={() => removeSupplier(supplier?.id)}
-                        className="h-5 w-5 bg-slate-300 flex justify-center pb-[3px] items-center rounded-full text-black"
-                      >
+                        className="h-5 w-5 bg-slate-300 flex justify-center pb-[3px] items-center rounded-full text-black">
                         &times;
                       </button>
                     </div>
@@ -153,8 +146,7 @@ function RightDrawerSendEnquiry({
               <div className="w-full">
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Your Name
                 </label>
                 <input
@@ -170,8 +162,7 @@ function RightDrawerSendEnquiry({
               <div className="w-full">
                 <label
                   htmlFor="company"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Your Company
                 </label>
                 <input
@@ -186,48 +177,45 @@ function RightDrawerSendEnquiry({
               </div>
             </div>
             <div className="flex w-full justify-between gap-5">
-            <div className="w-full">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
-                Your Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500"
-                placeholder="john.doe@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
               <div className="w-full">
-              <label
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                  Your Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500"
+                  placeholder="john.doe@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label
                   htmlFor="mobile"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-                >
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Your Mobile
                 </label>
-              <input
-                type="numeric"
-                inputMode="numeric"
-                pattern="[0-9]*"
-                id="mobile"
-                className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500"
-                placeholder="050*********"
-                value={mobile}
-                onChange={(e) => setMobile(e.target.value)}
-                required
-              />
-            </div>
+                <input
+                  type="numeric"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  id="mobile"
+                  className="mt-1 block w-full p-2 border rounded-md shadow-sm focus:ring-indigo-500"
+                  placeholder="050*********"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-              >
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                 Your Message
               </label>
               <textarea
@@ -237,13 +225,11 @@ function RightDrawerSendEnquiry({
                 placeholder="Write your message here..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                required
-              ></textarea>
+                required></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2"
-            >
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2">
               Send Enquiry
             </button>
           </form>

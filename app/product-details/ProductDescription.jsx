@@ -11,7 +11,9 @@ export const ProductDescription = ({ data }) => {
       <div className="flex flex-col gap-4 p-4">
         {data?.specification.length > 0 && (
           <>
-            <h1 className="text-base lg:text-2xl text-gray-800 font-semibold">{data?.itemDescription}</h1>
+            <h1 className="text-base lg:text-2xl text-gray-800 font-semibold">
+              {data?.itemDescription}
+            </h1>
             <div className="relative overflow-x-auto flex flex-col gap-4 text-sm">
               {data?.specification?.map((item, index) => (
                 <div className="" key={index}>
@@ -52,8 +54,7 @@ export const ProductDescription = ({ data }) => {
               {data?.brandsRef?.map((element, index) => (
                 <a href={`/brand/${element?.title.toLowerCase()}`} key={index}>
                   <div className="bg-gray-100 p-2 flex flex-col rounded-md gap-1">
-                    <Image
-                      unoptimized={true}
+                    <img
                       src={`${process.env.PAYLOAD_CMS_IMG_SERVER}${element.image.url}`}
                       alt={element.image.alt}
                       height={100}

@@ -23,13 +23,11 @@ const Menu = ({ allCategories, PAYLOAD_CMS_IMG_SERVER }) => {
       {/* Top Header */}
       <div
         className="lg:flex justify-center items-center text-sm font-semibold w-full relative"
-        ref={dropdownRef}
-      >
+        ref={dropdownRef}>
         {/* Button for Categories */}
         <button
           className="flex items-center gap-2 px-6 py-2 rounded-md  transition-all duration-200"
-          onClick={() => setDropdownVisible(!dropdownVisible)}
-        >
+          onClick={() => setDropdownVisible(!dropdownVisible)}>
           All Categories
           <FiChevronDown
             className={`transition-transform duration-200 ${
@@ -45,17 +43,16 @@ const Menu = ({ allCategories, PAYLOAD_CMS_IMG_SERVER }) => {
               {allCategories.map((category) => (
                 <li
                   key={category.id}
-                  className=" px-5 hover:bg-blue-100  cursor-pointer text-gray-700 flex w-full"
-                >
+                  className=" px-5 hover:bg-blue-100  cursor-pointer text-gray-700 flex w-full">
                   <a
                     className="flex gap-2 items-center"
                     href={category.slug}
-                    title={category.title}
-                  >
-                    <Image
+                    title={category.title}>
+                    <img
                       className="object-contain w-[40px] h-[40px] rounded-full"
                       height={40}
                       width={40}
+                      alt={category?.categoryImage[0]?.image.alt}
                       src={
                         category?.categoryImage.length > 0
                           ? `${PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`

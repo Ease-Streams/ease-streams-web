@@ -13,12 +13,12 @@ export const Supplier = () => {
     <div className="justify-center flex text-gray-700">
       <menu className="w-full lg:min-w-[75%] lg:max-w-[75%]  flex-grow min-[1537px]:min-w-[70%] min-[1537px]:max-w-[70%] flex flex-col gap-6">
         <div className="flex w-full justify-center items-center flex-col gap-3 bg-gray-100 py-3  px-2">
-          <Image
+          <img
             alt="Supplier logo"
             src="/images/ease-logo.svg"
             className="h-[100px] w-[100px] md:h-[120px] p-2 md:w-[120px] lg:h-[150px] lg:w-[150px] object-contain  border-[2px] border-gray-200 rounded-full"
             height={300}
-            width={300}></Image>
+            width={300}></img>
           <h1 className="text-3xl font-bold ">Easestreams.com</h1>
           <p className="text-sm md:text-md font-semibold ">
             Humanitarian Charity Building, Amman Street, Al Qusais Industrial

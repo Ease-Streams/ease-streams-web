@@ -39,8 +39,8 @@ const page = async ({ params, searchParams }) => {
                 </div>
               )}
               {categoryData?.headingImage && (
-                <Image
-                  unoptimized={true}
+                <img
+                  alt={`${categoryData?.headingImage?.alt}`}
                   height="300"
                   width="500"
                   className="object-fit max-w-[350px] lg:max-w-[300px] mt-2 lg:mt-0 order-1 lg:order-2 p-1"

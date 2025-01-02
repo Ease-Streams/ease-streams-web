@@ -3,16 +3,14 @@ import { FaWhatsapp } from "react-icons/fa6";
 
 export const ProductCard = (props) => {
   const { gridView, data, PAYLOAD_CMS_IMG_SERVER } = props;
-  // console.log(data, "data");
   return (
     <div className="w-full flex my-2 max-w-[170px] min-w-[160px]">
       <a
         title={data?.title}
         href={`/${data?.slug}`}
-        className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex  flex-col w-full`}
-      >
+        className={`bg-white group rounded-lg shadow-sm border overflow-hidden hover:shadow-xl border-gray-200 flex  flex-col w-full`}>
         <div className="">
-          <Image
+          <img
             src={`${
               data?.productImages?.length > 0
                 ? `${PAYLOAD_CMS_IMG_SERVER}${data?.productImages[0]?.image?.url}`
@@ -30,8 +28,7 @@ export const ProductCard = (props) => {
         <div className="bg-gray-100 p-4 flex-grow">
           <h2
             title={data?.title}
-            className="text-sm lg:text-md text-[#29698F] font-semibold min-h-10  line-clamp-3"
-          >
+            className="text-sm lg:text-md text-[#29698F] font-semibold min-h-10  line-clamp-3">
             {data?.title}
           </h2>
           <span className="hidden">{data?.itemDescription}</span>

@@ -32,17 +32,15 @@ export const Banner = (props) => {
             swiper.navigation.update();
           });
         }}
-        className="rounded-md"
-      >
+        className="rounded-md">
         {banners &&
           banners.map((item, index) => (
             <SwiperSlide key={index}>
               <a
                 title={item.alt || ""}
                 href={item.urlLink || "#"}
-                className="block"
-              >
-                <Image
+                className="block">
+                <img
                   height={200}
                   width={1200}
                   src={`${PAYLOAD_CMS_IMG_SERVER}${
@@ -60,14 +58,12 @@ export const Banner = (props) => {
       {/* Custom Navigation Buttons */}
       <button
         ref={prevRef}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 bg-white text-gray-800 p-2 rounded-full shadow-lg hover:bg-gray-100"
-      >
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 bg-white text-gray-800 p-2 rounded-full shadow-lg hover:bg-gray-100">
         <FaArrowLeft />
       </button>
       <button
         ref={nextRef}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 bg-white text-gray-800 p-2 rounded-full shadow-lg hover:bg-gray-100"
-      >
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 bg-white text-gray-800 p-2 rounded-full shadow-lg hover:bg-gray-100">
         <FaArrowRight />
       </button>
     </div>

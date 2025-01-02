@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import { ProductCard } from "../ProductCard";
 
-const ProductsSection = ({ data }) => {
+const ProductsSection = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
   // Create refs for the scrollable container and button states
   const scrollContainerRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
@@ -58,8 +58,7 @@ const ProductsSection = ({ data }) => {
           className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${
             isAtStart ? "cursor-not-allowed" : ""
           }`}
-          onClick={scrollLeft}
-        >
+          onClick={scrollLeft}>
           <FaArrowLeft />
         </button>
 
@@ -70,7 +69,11 @@ const ProductsSection = ({ data }) => {
           onScroll={checkScrollPosition} // Check scroll position on scroll
         >
           {data.productRefs.map((product) => (
-            <ProductCard data={product} key={product.id} />
+            <ProductCard
+              data={product}
+              key={product.id}
+              PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
+            />
           ))}
         </div>
 
@@ -80,8 +83,7 @@ const ProductsSection = ({ data }) => {
           className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${
             isAtEnd ? "cursor-not-allowed" : ""
           }`}
-          onClick={scrollRight}
-        >
+          onClick={scrollRight}>
           <FaArrowRight />
         </button>
       </div>

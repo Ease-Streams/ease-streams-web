@@ -51,7 +51,6 @@ const portalapi = {
     )
       .then(async (res) => {
         const data = await res.json();
-        console.log(data, "data");
 
         return data;
       })

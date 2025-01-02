@@ -13,11 +13,11 @@ const BannersSection = ({ data }) => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {data.banners.map((banner, index) => (
         <a key={index} href={banner.urlLink}>
-          <Image
+          <img
             height={200}
             width={1200}
             src={banner.bannerImage.url}
-            alt="Banner"
+            alt={banner.bannerImage.alt}
             className="w-full"
           />
         </a>

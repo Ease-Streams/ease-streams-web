@@ -14,7 +14,13 @@ const HomePage = (props) => {
   const renderSection = (section) => {
     switch (section.blockType) {
       case "products":
-        return <ProductsSection key={section.id} data={section} />;
+        return (
+          <ProductsSection
+            key={section.id}
+            data={section}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
+        );
       case "categories":
         return <CategoriesSection key={section.id} data={section} />;
       case "subcategories":
