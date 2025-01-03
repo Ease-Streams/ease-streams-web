@@ -21,15 +21,13 @@ export default async function RootLayout({ children }) {
         />
         <script
           async
-          src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"
-        ></script>
+          src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
       </head>
       <body
         suppressHydrationWarning={true}
-        className="bg-gray-100 text-gray-800"
-      >
+        className="bg-gray-100 text-gray-800">
         <div className="sticky top-0 z-30">
-          <Header />
+          {/* <Header /> */}
           <Menu
             allCategories={allCategories?.docs}
             PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
@@ -38,7 +36,7 @@ export default async function RootLayout({ children }) {
         <div className="flex flex-col">
           <div className="flex-grow ">
             <div className="my-2">{children}</div>
-            <Footer />
+            {/* <Footer /> */}
           </div>
           <BottomNavigation />
         </div>
