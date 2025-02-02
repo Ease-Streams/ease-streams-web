@@ -47,7 +47,7 @@ export const Banner = (props) => {
                     (item.image || item.bannerImage).url
                   }`}
                   alt={(item.image || item.bannerImage).alt || ""}
-                  className="w-full h-auto object-fill rounded-md min-h-[100px]"
+                  className="w-full h-auto object-fill rounded-md min-h-[100px] max-h-[200px]"
                   loading="eager"
                 />
               </a>

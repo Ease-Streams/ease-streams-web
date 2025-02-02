@@ -1,19 +1,18 @@
 import React from "react";
 
-export default function SubCategoryCard({ category }) {
+export default function SubCategoryCard({ category, PAYLOAD_CMS_IMG_SERVER }) {
   return (
     <a
       className="flex flex-col items-center justify-center w-[120px] lg:w-[150px]"
       title={category.title}
-      href={`/${category?.slug}`}
-    >
+      href={`/${category?.slug}`}>
       <img
         height={150}
         width={150}
         className="min-h-[120px]  min-w-[120px] lg:min-h-[150px] lg:min-w-[150px] rounded-full object-contain border-2 shadow-sm"
         src={
           category?.categoryImage?.length > 0
-            ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`
+            ? `${PAYLOAD_CMS_IMG_SERVER}${category?.categoryImage[0]?.image.url}`
             : "/images/placeholder.webp"
         }
         alt={`${

@@ -3,7 +3,6 @@ import { Banner } from "./components/home/Banner";
 import { AdBanner } from "./components/home/AdBanner";
 import ProductsSection from "./components/home/ProductsSection";
 import CategoriesSection from "./components/home/CategoriesSection";
-import SubcategoriesSection from "./components/home/SubcategoriesSection";
 import BrandsSection from "./components/home/BrandsSection";
 import BannersSection from "./components/home/BannersSection";
 import SmallBanner from "./components/home/SmallBanner";
@@ -22,11 +21,29 @@ const HomePage = (props) => {
           />
         );
       case "categories":
-        return <CategoriesSection key={section.id} data={section} />;
+        return (
+          <CategoriesSection
+            key={section.id}
+            data={section}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
+        );
       case "subcategories":
-        return <SubcategoriesSection key={section.id} data={section} />;
+        return (
+          <CategoriesSection
+            key={section.id}
+            data={section}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
+        );
       case "brands":
-        return <BrandsSection key={section.id} data={section} />;
+        return (
+          <BrandsSection
+            key={section.id}
+            data={section}
+            PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+          />
+        );
       case "banners":
         return (
           <SmallBanner

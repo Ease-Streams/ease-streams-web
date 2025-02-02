@@ -20,6 +20,17 @@ const portalapi = {
       })
       .catch((err) => console.error(err));
   },
+  getHomePageSeoMetaData: async () => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}/api/globals/seo_elements?_${new Date().getTime()}`,
+      { cache: "no-store" }
+    )
+      .then((res) => {
+        const data = res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
   getHomeBanners: async () => {
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/globals/home_banner?_${new Date().getTime()}`,
@@ -135,6 +146,18 @@ const portalapi = {
 
     return await fetch(
       `${PAYLOAD_CMS_SERVER}/api/products?where[itemDescription][like]=${searchTerm}&limit=10&[isActive][equals]=true&_${new Date().getTime()}`,
+      { cache: "no-store" }
+    )
+      .then(async (res) => {
+        const data = await res.json();
+        return data;
+      })
+      .catch((err) => console.error(err));
+  },
+
+  getRelatedProductsByBrand: async (brand) => {
+    return await fetch(
+      `${PAYLOAD_CMS_SERVER}/api/products?where[brandsRef.slug][in]=${brand}&limit=10&[isActive][equals]=true&_${new Date().getTime()}`,
       { cache: "no-store" }
     )
       .then(async (res) => {

@@ -1,8 +1,8 @@
-'use client';
-import { useRef, useState, useEffect } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
+"use client";
+import { useRef, useState, useEffect } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
-const BrandsSection = ({ data }) => {
+const BrandsSection = ({ data, PAYLOAD_CMS_IMG_SERVER }) => {
   // Create refs for the scrollable container
   const scrollContainerRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
@@ -11,7 +11,8 @@ const BrandsSection = ({ data }) => {
   // Check the scroll position to enable/disable buttons
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
-      const { scrollLeft, scrollWidth, offsetWidth } = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, offsetWidth } =
+        scrollContainerRef.current;
       setIsAtStart(scrollLeft === 0);
       setIsAtEnd(scrollLeft + offsetWidth >= scrollWidth);
     }
@@ -21,7 +22,7 @@ const BrandsSection = ({ data }) => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: -200, // Adjust scroll amount as needed
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -30,7 +31,7 @@ const BrandsSection = ({ data }) => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({
         left: 200, // Adjust scroll amount as needed
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -53,9 +54,10 @@ const BrandsSection = ({ data }) => {
         {/* Left Scroll Button */}
         <button
           disabled={isAtStart}
-          className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${isAtStart ? 'cursor-not-allowed' : ''}`}
-          onClick={scrollLeft}
-        >
+          className={`absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${
+            isAtStart ? "cursor-not-allowed" : ""
+          }`}
+          onClick={scrollLeft}>
           <FaArrowLeft />
         </button>
 
@@ -70,13 +72,12 @@ const BrandsSection = ({ data }) => {
               title={brand?.title}
               href={brand.slug}
               key={index}
-              className="flex w-full max-w-[120px]"
-            >
+              className="flex w-full max-w-[120px]">
               <img
                 className="w-[120px] object-contain m-auto"
                 src={
                   brand?.image?.url
-                    ? `${process.env.PAYLOAD_CMS_IMG_SERVER}${brand?.image?.url}`
+                    ? `${PAYLOAD_CMS_IMG_SERVER}${brand?.image?.url}`
                     : "images/placeholder.webps"
                 }
                 alt={brand?.image?.alt}
@@ -88,9 +89,10 @@ const BrandsSection = ({ data }) => {
         {/* Right Scroll Button */}
         <button
           disabled={isAtEnd}
-          className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${isAtEnd ? 'cursor-not-allowed' : ''}`}
-          onClick={scrollRight}
-        >
+          className={`absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-300 z-20 ${
+            isAtEnd ? "cursor-not-allowed" : ""
+          }`}
+          onClick={scrollRight}>
           <FaArrowRight />
         </button>
       </div>

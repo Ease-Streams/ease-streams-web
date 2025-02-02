@@ -4,7 +4,7 @@
 import { useEffect, useRef } from "react";
 import { ProductCard } from "@/app/components/ProductCard";
 
-const ProductSections = ({ productList }) => {
+const ProductSections = ({ productList, PAYLOAD_CMS_IMG_SERVER }) => {
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const ProductSections = ({ productList }) => {
           <div className="w-full">
             <details className="group rounded-md">
               <summary className="cursor-pointer font-medium text-lg flex items-center justify-between">
-                <div className="flex justify-between w-full mr-2 pb-6 items-center">
+                <div className="flex justify-between w-full mr-2 pb-6 items-center px-2 md:px-5 lg:px-9">
                   <h2 className="text-sm md:text-3xl font-bold max-w-max text-[#03A7E8]">
                     {item?.title}
                   </h2>
@@ -75,12 +75,12 @@ const ProductSections = ({ productList }) => {
               )}
             </details>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 min-[1400px]:grid-cols-4 justify-center gap-2 md:gap-4 mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 min-[1400px]:grid-cols-5 justify-center gap-2 md:gap-4 mx-auto">
             {item?.products.map((product, index) => (
               <ProductCard
                 key={index}
                 data={product}
-                PAYLOAD_CMS_IMG_SERVER={process.env.PAYLOAD_CMS_IMG_SERVER}
+                PAYLOAD_CMS_IMG_SERVER={PAYLOAD_CMS_IMG_SERVER}
               />
             ))}
           </div>

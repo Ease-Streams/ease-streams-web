@@ -25,13 +25,13 @@ export const ProductCard = (props) => {
             className="w-full h-auto m-auto transition  ease-out group-hover:scale-110"
           />
         </div>
-        <div className="bg-gray-100 p-4 flex-grow">
+        <div className="bg-gray-100 p-4 flex-grow flex flex-col justify-between">
           <h2
-            title={data?.title}
+            title={data?.itemDescription}
             className="text-sm lg:text-md text-[#29698F] font-semibold min-h-10  line-clamp-3">
-            {data?.title}
+            {data?.itemDescription}
           </h2>
-          <span className="hidden">{data?.itemDescription}</span>
+          <span className="hidden">{data?.title}</span>
 
           <p className="text-gray-500 text-xs"> {data?.itemCode}</p>
           {/* <div className="mt-4 text-sm">

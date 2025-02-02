@@ -44,3 +44,13 @@ export const normalizeSearchTermwithHyphen = (searchTerm) => {
     .replace(/-{2,}/g, "-")
     .trim(); // Replace two or more consecutive hyphens with a single hyphen
 };
+export const defaultSeoData = {
+  metaTitle:
+    "EaseStreams | Connect with Trusted Wholesale Dealers in UAE & Get Accurate Information",
+  metaDescription:
+    "Find and connect with reliable wholesale dealers effortlessly on EaseStreams. Get accurate product details, competitive prices, and seamless business connections all in one place",
+  metaKeywords:
+    "B2B marketplace, B2B ecommerce, Wholesale marketplace, Bulk purchasing, Corporate procurement, Industrial suppliers, Construction materials B2B, Middle East B2B trade, B2B lead generation",
+  canonical: "https://easestreams.com/",
+  metaImage: "/images/ease-logo-short.webp",
+};
