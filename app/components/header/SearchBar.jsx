@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import Image from "next/image";
 import { FaAngleDown } from "react-icons/fa6";
 import { BiCategory } from "react-icons/bi";
-import { fetchSuggestions } from "@/app/PortalApi/portalApi";
+import portalapi from "@/app/PortalApi/portalApi";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -38,7 +38,7 @@ const SearchBar = () => {
         setDropdownVisible(true);
         try {
           // Call the fetchSuggestions function with the search term
-          const suggestions = await fetchSuggestions(query);
+          const suggestions = await portalapi.fetchSuggestions(query);
           if (
             !suggestions.products?.docs.length &&
             !suggestions.categories?.docs.length &&
@@ -137,8 +137,7 @@ const SearchBar = () => {
             results.subcategories.length > 0) && (
             <div
               ref={dropdownRef}
-              className="absolute w-full top-9 bg-white border border-gray-300 rounded-lg shadow-xl mt-2 p-3 z-10 max-h-[400px] overflow-y-auto text-sm"
-            >
+              className="absolute w-full top-9 bg-white border border-gray-300 rounded-lg shadow-xl mt-2 p-3 z-10 max-h-[400px] overflow-y-auto text-sm">
               <ul className="space-y-3">
                 {/* Products Section */}
                 {results.products?.length > 0 && (
@@ -150,12 +149,10 @@ const SearchBar = () => {
                       {results.products.map((product) => (
                         <li
                           key={product.id}
-                          className="p-2 py-1 hover:bg-blue-100 cursor-pointer rounded-md transition-all flex items-center gap-3"
-                        >
+                          className="p-2 py-1 hover:bg-blue-100 cursor-pointer rounded-md transition-all flex items-center gap-3">
                           <a
                             href={product.slug}
-                            className="flex items-center gap-2 w-full"
-                          >
+                            className="flex items-center gap-2 w-full">
                             <span className="font-medium text-gray-800">
                               {product.title}
                             </span>
@@ -177,8 +174,7 @@ const SearchBar = () => {
                         <li
                           key={category.id}
                           className="p-2 py-1 hover:bg-green-100 cursor-pointer rounded-md transition-all flex items-center gap-3"
-                          onClick={() => handleCategoryClick(category.title)}
-                        >
+                          onClick={() => handleCategoryClick(category.title)}>
                           <a href={category.slug}>
                             <span className="font-medium text-gray-800">
                               {category.title}
@@ -200,8 +196,7 @@ const SearchBar = () => {
                       {results.subcategories.map((subcategory) => (
                         <li
                           key={subcategory.id}
-                          className="p-2 py-1 hover:bg-purple-100 cursor-pointer rounded-md transition-all flex items-center gap-3"
-                        >
+                          className="p-2 py-1 hover:bg-purple-100 cursor-pointer rounded-md transition-all flex items-center gap-3">
                           <a href={subcategory.slug}>
                             <span className="font-medium text-gray-800">
                               {subcategory.title}
