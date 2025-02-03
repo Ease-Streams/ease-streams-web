@@ -15,13 +15,7 @@ export default function SEO({ seoData }) {
         content={seoData?.metaKeyword || defaultSeoData.metaKeywords}
       />
       <meta name="robots" content="index, follow" />
-      <link
-        rel="canonical"
-        href={
-          `${process.env.EASESTREAMS_SERVER}${seoData?.canonical}` ||
-          `${process.env.EASESTREAMS_SERVER}`
-        }
-      />
+      <link rel="canonical" href={`${seoData?.canonical}`} />
 
       {/* OpenGraph & Twitter Metadata */}
       <meta

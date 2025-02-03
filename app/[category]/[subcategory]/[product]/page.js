@@ -20,7 +20,8 @@ const Page = async ({ params }) => {
     metaDescription: productDetails.docs[0]?.metaDescription || "",
     metaKeyword: productDetails.docs[0]?.metaKeyword || "",
     canonical:
-      productDetails.docs[0]?.canonical || `/${productDetails.docs[0]?.slug}`,
+      productDetails.docs[0]?.canonical ||
+      `${process.env.EASESTREAMS_SERVER}${productDetails.docs[0]?.slug}`,
   };
   return (
     <>

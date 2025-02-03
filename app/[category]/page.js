@@ -19,7 +19,9 @@ const page = async ({ params, searchParams }) => {
     metaTitle: categoryData?.metaTitle || categoryData.title,
     metaDescription: categoryData?.metaDescription || "",
     metaKeyword: categoryData?.metaKeyword || "",
-    canonical: categoryData?.canonical || `/${categoryData?.slug}`,
+    canonical:
+      categoryData?.canonical ||
+      `${process.env.EASESTREAMS_SERVER}${categoryData?.slug}`,
   };
   return (
     <>

@@ -17,7 +17,9 @@ const Page = async ({ params }) => {
     metaTitle: subCategory?.metaTitle || subCategory.title,
     metaDescription: subCategory?.metaDescription || "",
     metaKeyword: subCategory?.metaKeyword || "",
-    canonical: subCategory?.canonical || `/${subCategory?.slug}`,
+    canonical:
+      subCategory?.canonical ||
+      `${process.env.EASESTREAMS_SERVER}${subCategory?.slug}`,
   };
 
   return (
