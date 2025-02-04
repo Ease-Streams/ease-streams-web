@@ -5,11 +5,15 @@ import Breadcrumb from "../components/globals/Breadcrumb";
 import { AdBanner } from "../components/home/AdBanner";
 import SubCategoryList from "../components/Category/SubCategoryList"; // Import the new SubCategoryList component
 import SEO from "../components/SeoMeta";
+import { notFound, permanentRedirect } from "next/navigation";
 
 const page = async ({ params, searchParams }) => {
   const awaitedParams = await params;
   const awaitedSearchParams = await searchParams;
   const { category, subcategory, product } = awaitedParams;
+  if (category === "undefined") {
+    permanentRedirect("/");
+  }
   let categoryData = await portalApi.getCategoryData(category);
 
   if (categoryData && categoryData.docs && categoryData.docs.length > 0) {
